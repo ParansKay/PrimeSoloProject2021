@@ -15,12 +15,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import InputPage from '../InputPage/InputPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +54,8 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+          
+          {/* DO NOT DELETE YET */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
@@ -59,13 +63,22 @@ function App() {
           >
             <UserPage />
           </ProtectedRoute>
+          {/* END OF DO NOT DELETE */}
+
+           {/* <Route
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/user"
+          >
+            <UserPage />
+          </Route> */}
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows FavoritesPage else shows LoginPage (need to change this)
             exact
-            path="/info"
+            path="/favorites"
           >
-            <InfoPage />
+            <FavoritesPage/>
           </ProtectedRoute>
 
           <Route
@@ -96,6 +109,7 @@ function App() {
             }
           </Route>
 
+            {/* DO NOT DELETE! ____________________________*/}
           <Route
             exact
             path="/home"
@@ -109,6 +123,15 @@ function App() {
               <LandingPage />
             }
           </Route>
+            {/* END DO NOT DELETE -_______________________------ */}
+{/* 
+            <Route
+            exact
+            path="/home"
+          >
+              <UserPage />
+            
+          </Route> */}
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
