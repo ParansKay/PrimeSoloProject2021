@@ -50,6 +50,7 @@ function ResultsPage() {
                         type: 'SET_ONE_ACTIVITY', 
                         payload:{
                             id: activity.id, 
+                            tag: tag.name,
                             name: activity.title, 
                             description: activity.description, 
                             actors: activity.actors
