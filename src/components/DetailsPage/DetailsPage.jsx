@@ -17,6 +17,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import StarIcon from '@mui/icons-material/Star';
 
 function DetailsPage(){
     // const[name, setName] = useState( null );
@@ -26,12 +27,22 @@ function DetailsPage(){
     const store = useSelector((store) => store);
 
     // FAVORITE TOGGLE
-    // const [like, setLike ] = useState( !like );
-    // // create a function called toggleLike
-    // const toggleLike = () => {
-    // // the function sets the value of like to not-like (changes it from false to true)
-    // setLike(like);
-    //   } //end toggleShowImage
+   const [isLiked, setIsLiked] = useState(false);
+
+   const toggleLikes =() => {
+       console.log( 'in toggleLikes!!!!' );
+    //    setIsLiked(!isLiked);
+       if( isLiked === false){
+           console.log( 'dispatching POST to add this to favorites' );
+           setIsLiked(!isLiked);
+       }
+       else{
+            console.log( 'dispatching DELETE to remove this from favorites' );
+            setIsLiked(!isLiked);
+       }
+   }
+   
+
     //END FAVORITE TOGGLE 
 
     // On page load, connect to the saga to fetch tags, specifically,
@@ -74,8 +85,20 @@ function DetailsPage(){
                       <CardContent key={oneActivityReducer.id}>
                           {/* Styling allows us to  */}
                       {/* <ToggleButton> */}
-                        <StarOutlineIcon fontSize="large" right="40%" style={{ color: 'gray', position: "absolute", top: "184px", right: "30px"}} 
-                        onClick={console.log('in toggleLike!')}/>
+                      <div>
+                        {isLiked?
+                          <Button  right="40%" 
+                            onClick={toggleLikes}>
+                            <StarIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "17px", left: "340px"}}/>
+                          </Button>: 
+                          <Button  right="40%" 
+                            onClick={toggleLikes}>
+                            <StarOutlineIcon fontSize="large" style={{ color: 'gray', position: "absolute", top: "17px", left: "340px"}}/>
+                          </Button> 
+                        }
+                      </div>
+                        {/* <StarOutlineIcon fontSize="large" right="40%" style={{ color: 'gray', position: "absolute", top: "184px", right: "30px"}} 
+                        onClick={console.log('in toggleLike!')}/> */}
                       {/* </ToggleButton> */}
                           <Typography variant="h4">{oneActivityReducer.name}</Typography>
                           {/* NUMBER OF ACTORS */}
