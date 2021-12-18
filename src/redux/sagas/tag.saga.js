@@ -7,7 +7,6 @@ function* tagSaga() {
 
   function* fetchTag(action) {
       console.log('in FETCH_TAG----!');
-    //   console.log( 'logging all the action', action);
     try {
       const tag = yield axios.get(`/api/tag?id=${action.payload}`);
       console.log( 'grabbing all the tags:', tag.data );

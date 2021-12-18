@@ -24,6 +24,7 @@ function ResultsPage() {
 
   const activity = useSelector((store) => store.activity);
   const tag = useSelector((store) => store.tag);
+  const search = useSelector((store) => store.search);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
   const dispatch = useDispatch();
 
@@ -33,7 +34,8 @@ function ResultsPage() {
     //END FIXED NAV BAR 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_ACTIVITY' });
+        dispatch({ type: 'FETCH_ACTIVITY'});
+        // dispatch({ type: 'FETCH_SEARCH'});
     }, []);
 
     return (
@@ -42,18 +44,17 @@ function ResultsPage() {
             <h1>Activity List</h1>
             </div>
             <section className="mapping">
-                {activity.map(activity => { {/* mapping through the store */}
+                {search.map(search => { {/* mapping through the store */}
                 const setOneActivity = () => { 
                     //This ^^ function needs to be defined within the mapping.
                     // if defined outside, it won't work.
                     dispatch( {
                         type: 'SET_ONE_ACTIVITY', 
                         payload:{
-                            id: activity.id, 
-                            tag: tag.name,
-                            name: activity.title, 
-                            description: activity.description, 
-                            actors: activity.actors
+                            id: search.id,
+                            name: search.title, 
+                            description: search.description, 
+                            actors: search.actors
                             }
                         } )
                 }
@@ -81,9 +82,9 @@ function ResultsPage() {
                                 }}>
                                         {/* MOVIE CARDS*/}
                                         <Link to="/details">
-                                        <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{activity.title}</Typography>
-                                            <Typography variant="h6">{activity.description}</Typography>
+                                        <CardContent key={search.id} Link to="/details" onClick={setOneActivity}>
+                                            <Typography variant="h3">{search.title}</Typography>
+                                            <Typography variant="h6">{search.description}</Typography>
                                         </CardContent>
                                         </Link>
                                     </Card>
@@ -98,7 +99,7 @@ function ResultsPage() {
                 <Box sx={{ width: 500 }}>
                     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                         <BottomNavigation
-                            showLabels
+                            showlabels
                             value={value}
                             onChange={(event, newValue) => {
                             setValue(newValue);
@@ -123,46 +124,3 @@ function ResultsPage() {
 }
 
 export default ResultsPage;
-
-
-//   useEffect( () =>{
-//     dispatch({ type: "FETCH_ACTIVITY" });
-//   }, []);
-  
-  
-//   return (
-//     <main>
-//       <div className="activityListMap">
-//         <h1>Here are the results</h1>
-//         {activity.map(activity => { {/* mapping through the store */}
-//                 const setOneActivity = () => { 
-//                     //This ^^ function needs to be defined within the mapping.
-//                     // if defined outside, it won't work.
-//                     dispatch( {
-//                         type: 'SET_ONE_ACTIVITY', 
-//                         payload:{
-//                             id: activity.id, 
-//                             name: activity.title,
-//                             description: activity.description 
-//                             }
-//                         } )
-//                 }
-//     return (
-//       <div className="activityList">
-//         <h3></h3>
-//       </div>
-//     );
-//             // {activity.map(activity => {
-//             //   return(
-//             //     <div>
-//             //         <h3>activity: {activity.activity_name}, {activity.num_actors}</h3>
-//             //         <h6>{activity.activity_description}</h6>
-//             //     </div>
-        
-//         })}  
-//       </div>
-// </main>
-//   )
-// }
-
-// export default ResultsPage;

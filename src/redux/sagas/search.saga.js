@@ -5,11 +5,11 @@ function* searchSaga() {
     yield takeLatest('FETCH_SEARCH', fetchSearch);
   }
 
-  function* fetchSearch() {
+  function* fetchSearch(action) {
       console.log('in FETCH_SEARCH----!');
     try {
-      const response = yield axios.get('/api/search');
-      console.log( 'response is------>', response.data );
+      const response = yield axios.get(`/api/search?id=${action.payload}`);
+      console.log( 'fetch SEARCH response is------>', response.data );
       yield put({ 
           type: 'SET_SEARCH', 
           payload: response.data });

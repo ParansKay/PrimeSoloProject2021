@@ -4,7 +4,7 @@ import user from './user.reducer';
 import activity from './activity.reducer';
 import tag from './tag.reducer';
 import oneActivityReducer from './oneActivityReducer';
-import searchReducer from './search.reducer';
+import search from './search.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   activity,
   errors, // contains registrationMessage and loginMessage
   oneActivityReducer,
-  searchReducer,
+  search,
   tag,
   user, // will have an id and username if someone is logged in
 });

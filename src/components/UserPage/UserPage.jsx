@@ -2,7 +2,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 // import './MovieList.css'
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -30,33 +30,36 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const activity = useSelector((store) => store.activity);
   const tag = useSelector((store) => store.tag);
+
+  const history = useHistory();
+  
   //defning dispatch
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_ACTIVITY' });
-    dispatch({ type: 'FETCH_SEARCH' });
-}, [])
+//   useEffect(() => {
+//     dispatch({ type: 'FETCH_SEARCH'});
+// }, []);
 
   const getSearchResults = ()=>{
+    if (tagId === 0){
+      console.log ('you did not select a tag!');
+      dispatch( {
+        type: 'FETCH_ACTIVITY'})
+        history.push("/results");
+    }
+    else{
     console.log ('getting search results!');
     dispatch( {
-      type: 'SET_SEARCH', 
-      payload:{
-          id: tag.id, 
-          tag: tag.name
-          }
+      type: 'FETCH_SEARCH',
+      payload: tagId
       } )
+      const timer = setTimeout(()=>{
+      history.push("/results");
+      }, 200);
+  };
   }
-
   const[tagId, setTagId] = useState(0);
 
-  const searchByTag = (event) =>{
-   console.log ( 'in searchByTag' );
-  //  THIS IS WHERE I NEEED TO GRAB THE TAG VALUE AND SEND A REQUEST FOR TAG ID...I think?
-    setTagId(event.target.value);
-    console.log( 'tag id------>', tagId);
-}
 
   return (
     <Card>
@@ -90,7 +93,7 @@ function UserPage() {
                         // value={newMovie.genre}
                         label="tagSelect"
                         defaultValue={0}
-                        onChange={( event )=>searchByTag( event )}
+                        onChange={(event) => setTagId(event.target.value)}
                     >
                         <MenuItem value="">
                             <em>pick from the list below!</em>
@@ -117,11 +120,11 @@ function UserPage() {
         </CardContent>
       </div>
       {/* SEARCH BUTTON */}
-      <div align="center">
         <CardActions align="center">
-          <Button onClick={getSearchResults}>Show me Whata-to-do!</Button>
+        <div align="center">
+            <Button onClick={getSearchResults}>Show me Whata-to-do!</Button>
+        </div>
         </CardActions>
-      </div>
         {/* <p>Your ID is: {user.id}</p> */}
         {/* <LogOutButton className="btn" /> */}
     </Card>

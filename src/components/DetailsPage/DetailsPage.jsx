@@ -24,6 +24,9 @@ function DetailsPage(){
     const tag = useSelector((store) => store.tag);
     const store = useSelector((store) => store);
 
+    console.log( 'oneActivityReducer:', oneActivityReducer);
+    console.log( 'tag:', tag);
+
     useEffect(() => {
         dispatch({ 
             type: 'FETCH_TAG',
@@ -89,7 +92,7 @@ function DetailsPage(){
               <Box sx={{ width: 500 }}>
                   <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                       <BottomNavigation
-                          showLabels
+                          showlabels
                           value={value}
                           onChange={(event, newValue) => {
                           setValue(newValue);
