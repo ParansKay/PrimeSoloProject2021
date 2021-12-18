@@ -16,6 +16,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 function DetailsPage(){
     // const[name, setName] = useState( null );
@@ -24,9 +25,17 @@ function DetailsPage(){
     const tag = useSelector((store) => store.tag);
     const store = useSelector((store) => store);
 
-    console.log( 'oneActivityReducer:', oneActivityReducer);
-    console.log( 'tag:', tag);
+    // FAVORITE TOGGLE
+    // const [like, setLike ] = useState( !like );
+    // // create a function called toggleLike
+    // const toggleLike = () => {
+    // // the function sets the value of like to not-like (changes it from false to true)
+    // setLike(like);
+    //   } //end toggleShowImage
+    //END FAVORITE TOGGLE 
 
+    // On page load, connect to the saga to fetch tags, specifically,
+    // look for the id of the activity we clicked on the results/activity page
     useEffect(() => {
         dispatch({ 
             type: 'FETCH_TAG',
@@ -50,7 +59,7 @@ function DetailsPage(){
               justify="center"
               // style={{ maxWidth: '50%', maxHeight: '80%'}}
               >
-              <Grid item xs={6} className="activity">
+              <Grid item xs={12} className="activity">
               {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                   {/* the number inside {} indicates how wide the card can be. Weird.*/}
                   <Card className="card" variant="outlined" 
@@ -63,6 +72,11 @@ function DetailsPage(){
                       {/* ACTIVITY DETAIL CARD*/}
                       {/* ACTIVITY TITLE */}
                       <CardContent key={oneActivityReducer.id}>
+                          {/* Styling allows us to  */}
+                      {/* <ToggleButton> */}
+                        <StarOutlineIcon fontSize="large" right="40%" style={{ color: 'gray', position: "absolute", top: "184px", right: "30px"}} 
+                        onClick={console.log('in toggleLike!')}/>
+                      {/* </ToggleButton> */}
                           <Typography variant="h4">{oneActivityReducer.name}</Typography>
                           {/* NUMBER OF ACTORS */}
                           <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>

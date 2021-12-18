@@ -20,6 +20,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 
 
+
 function ActivityPage() {
 
   const activity = useSelector((store) => store.activity);
@@ -80,7 +81,7 @@ function ActivityPage() {
                                         borderRadius: 7,
                                         boxShadow: 1
                                 }}>
-                                        {/* MOVIE CARDS*/}
+                                        {/* ACTIVITY CARDS*/}
                                         <Link to="/details">
                                         <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{activity.title}</Typography>
