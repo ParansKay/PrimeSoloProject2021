@@ -45,7 +45,7 @@ function UserPage() {
       console.log ('you did not select a tag!');
       dispatch( {
         type: 'FETCH_ACTIVITY'})
-        history.push("/results");
+        history.push("/allactivity");
     }
     else{
     console.log ('getting search results!');

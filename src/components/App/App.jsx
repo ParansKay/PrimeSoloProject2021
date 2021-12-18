@@ -21,6 +21,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
+import ActivityPage from '../ActivityPage/ActivityPage';
 
 import './App.css';
 
@@ -88,6 +89,14 @@ function App() {
             path="/results"
           >
             <ResultsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/allactivity"
+          >
+            <ActivityPage />
           </ProtectedRoute>
 
           <ProtectedRoute
