@@ -19,7 +19,7 @@ import Paper from '@mui/material/Paper';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarIcon from '@mui/icons-material/Star';
 
-function DetailsPage(){
+function FaveDetails(){
     // const[name, setName] = useState( null );
     const dispatch = useDispatch();
     const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
@@ -72,14 +72,14 @@ function DetailsPage(){
     const toggleLike = () =>{
         if( isLiked === false ){
             console.log( 'dispatching POST to add this to favorites' );
-            setIsLiked(true);
+            setIsLiked(!isLiked);
             addToFavorites();
          }
         // otherwise, if the value of isLiked is true, then, change it to false,
         // and proceed to make a DELETE dispatch call
         else if(( isLiked === true )){
              console.log( 'dispatching DELETE to remove this from favorites' );
-             setIsLiked(false);
+             setIsLiked(!isLiked);
              removeFromFavorites();
         }
     }
@@ -196,4 +196,4 @@ function DetailsPage(){
       </div>
   )
 }
-export default DetailsPage;
+export default FaveDetails;

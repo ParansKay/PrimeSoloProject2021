@@ -28,6 +28,7 @@ const router = express.Router();
  */
 router.post('/', (req, res) => {
     console.log( 'in POST ROUTE with:', req.body);
+    console.log( 'req.body.user_id:', req.body.user_id, 'req.body.activity_id:', req.body.activity_id)
     // POST route code here
     const queryTextFave = `INSERT INTO "favorite" ("user_id", "activity_id")
     VALUES ($1, $2)
@@ -38,6 +39,23 @@ router.post('/', (req, res) => {
       const createdFaveId = result.rows[0].id
 
       res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all favorite results', err);
+      res.sendStatus(500)
+    })
+});
+
+router.delete('/', (req, res) => {
+    console.log( 'in DELETE ROUTE with:', req.body);
+    console.log( 'req.body.user_id:', req.body.user_id, 'req.body.activity_id:', req.body.activity_id)
+    // POST route code here
+    const queryTextFave = `DELETE FROM "favorite"
+    WHERE "user_id"=$1 and "activity_id"=$2;`
+    pool.query(queryTextFave, [req.body.user_id, req.body.activity_id])
+    .then(result => {
+      console.log('deleted activity Id');
+      res.sendStatus(200)
     })
     .catch(err => {
       console.log('ERROR: Get all favorite results', err);

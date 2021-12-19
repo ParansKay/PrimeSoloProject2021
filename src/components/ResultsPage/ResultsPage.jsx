@@ -36,6 +36,7 @@ function ResultsPage() {
     useEffect(() => {
         // dispatch({ type: ''});
         dispatch({ type: 'FETCH_SEARCH'});
+        dispatch({ type: 'FETCH_FAVORITE'});
     }, []);
 
     return (
