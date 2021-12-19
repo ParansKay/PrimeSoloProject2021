@@ -25,24 +25,31 @@ function DetailsPage(){
     const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
     const tag = useSelector((store) => store.tag);
     const store = useSelector((store) => store);
+    const favorite = useSelector((store) => store.favorite);
+    const user = useSelector((store) => store.user);
 
     // FAVORITE TOGGLE
+    //creating a hook for our like button with a default state of false;
+    //the default is false because activities are not liked in their default state,
+    //meaning the user has to manually like them, changing the false status to true 
    const [isLiked, setIsLiked] = useState(false);
-
+    // creating a function called toggleLikes where we can flip between
+    //the value of liked and notliked
    const toggleLikes =() => {
-       console.log( 'in toggleLikes!!!!' );
-    //    setIsLiked(!isLiked);
+       // if the value of isLiked is false, then, change it to true,
+       // and proceed to make a POST dispatch call
        if( isLiked === false){
            console.log( 'dispatching POST to add this to favorites' );
            setIsLiked(!isLiked);
+           addToFavorites();
        }
+       // otherwise, if the value of isLiked is true, then, change it to false,
+       // and proceed to make a DELETE dispatch call
        else{
             console.log( 'dispatching DELETE to remove this from favorites' );
             setIsLiked(!isLiked);
        }
    }
-   
-
     //END FAVORITE TOGGLE 
 
     // On page load, connect to the saga to fetch tags, specifically,
@@ -52,6 +59,15 @@ function DetailsPage(){
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
     }, []);
+
+    const addToFavorites = () => {
+        dispatch({ 
+            type: 'SET_LIKE',
+            payload: {
+                activity_id: oneActivityReducer.id,
+                user_id: user.id
+        }});
+    };
 
     // FIXED NAV BAR
     const [value, setValue] = React.useState(0);
@@ -97,9 +113,6 @@ function DetailsPage(){
                           </Button> 
                         }
                       </div>
-                        {/* <StarOutlineIcon fontSize="large" right="40%" style={{ color: 'gray', position: "absolute", top: "184px", right: "30px"}} 
-                        onClick={console.log('in toggleLike!')}/> */}
-                      {/* </ToggleButton> */}
                           <Typography variant="h4">{oneActivityReducer.name}</Typography>
                           {/* NUMBER OF ACTORS */}
                           <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>
