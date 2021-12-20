@@ -34,7 +34,7 @@ function FaveDetails(){
         dispatch({ 
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
-        dispatch({type: 'FETCH_FAVORITE'});
+        dispatch({type: 'FETCH_FAVORITES'});
         checkLikes();
     }, []);
 
@@ -43,62 +43,76 @@ function FaveDetails(){
     //the default is false because activities are not liked in their default state,
     //meaning the user has to manually like them, changing the false status to true
    const [isLiked, setIsLiked] = useState();
-    // creating a function called toggleLikes where we can flip between
-    //the value of liked and notliked
+    // creating a function called checkLikes
+    // this function checks to see if our favorites table is empty or not 
    const checkLikes =() => {
-       // if the value of isLiked is false, then, change it to true,
-       // and proceed to make a POST dispatch call
        console.log(oneActivityReducer.id, favorite);
+       // if the table is empty
         if (favorite.length === 0){
+            //set the value of IsLiked to false
             setIsLiked(false);
+            // then run the toggleLike function (to add it to favorites)
             toggleLike();
         }
+        //Otherwise, if there are items in the favorites table,
         else {
+            //loop through the items
             for( let i = 0; i<favorite.length; i++ ){
+                // check to see if the current activity exists in the favorites table
                 if( oneActivityReducer.id === favorite[i].id ){
                     console.log(oneActivityReducer.id, favorite.activity_id);
+                    // if it does exist, turn the value of isLiked to true
                     setIsLiked(true);
+                    // and run the toggleLike function (to remove it from favorites)
                     toggleLike();
-                }//end if
+                }//END IF
+                // if the current activity does not exist in the table, 
                 else{
+                    // set the value of isLiked to false
                     setIsLiked(false);
+                    // and run the functoin toggleLike (to add it to favorites)
                     toggleLike();   
-                }
-       }
-    }
+                } //END ELSE
+       }//END FOR LOOP
+    }//END ELSE
     //END FAVORITE TOGGLE 
-    }
+    }//END CHECKLIKES
 
     const toggleLike = () =>{
+        // if the value of isLiked is false, then
         if( isLiked === false ){
+            // set its' value to true (aka not-isLiked =!isLiked)
             console.log( 'dispatching POST to add this to favorites' );
             setIsLiked(!isLiked);
+            // run the function addToFavorites
             addToFavorites();
          }
-        // otherwise, if the value of isLiked is true, then, change it to false,
-        // and proceed to make a DELETE dispatch call
+        // otherwise, if the value of isLiked is true, then,
         else if(( isLiked === true )){
              console.log( 'dispatching DELETE to remove this from favorites' );
+             //change the value isLiked to the opposite of the current value
+             //(so, from true to false),
              setIsLiked(!isLiked);
+             // and run the function removeFromFavorites
              removeFromFavorites();
         }
     }
-
+    //Creating a function called addToFavorites
     const addToFavorites = () => {
         dispatch({ 
             type: 'SET_LIKE',
             payload: {
-                activity_id: oneActivityReducer.id,
-                user_id: user.id
+                activity_id: oneActivityReducer.id, //target the current activity's id
+                user_id: user.id //target the current user id
         }});
     };
-
+    //Creating a function called removeFromFavorites
     const removeFromFavorites = () =>{
         dispatch({ 
             type: 'DELETE_LIKE',
             payload: {
-                activity_id: oneActivityReducer.id,
-                user_id: user.id
+                activity_id: oneActivityReducer.id, //target the current activity's id
+                user_id: user.id //target the current user id
         }}); 
     }
     // FIXED NAV BAR
