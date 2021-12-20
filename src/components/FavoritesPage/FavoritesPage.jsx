@@ -110,7 +110,7 @@ function FavoritesPage() {
                             <BottomNavigationAction label="Home" icon={<HomeIcon />} />
                             </Link>
                             {/* Link ADD NEW ICON to AddMovie page */}
-                            <Link to="/addactivity">
+                            <Link to="/newsubmit">
                             <BottomNavigationAction icon={<AddCircleIcon />} />
                             </Link>
                         </BottomNavigation>

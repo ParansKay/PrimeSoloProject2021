@@ -23,6 +23,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import ActivityPage from '../ActivityPage/ActivityPage';
+import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
 
 
 import './App.css';
@@ -91,6 +92,14 @@ function App() {
             path="/details"
           >
             <DetailsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/newsubmit"
+          >
+            <NewActivitySubmit />
           </ProtectedRoute>
 
           <ProtectedRoute
