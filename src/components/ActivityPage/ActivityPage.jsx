@@ -71,7 +71,7 @@ function ActivityPage() {
                                 justify="center"
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
-                                <Grid item xs={5} className="movies">
+                                <Grid item xs={12} className="movies">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 

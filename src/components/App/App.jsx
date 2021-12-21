@@ -24,6 +24,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import ActivityPage from '../ActivityPage/ActivityPage';
 import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
+import SubmissionsControl from '../SubmissionsControl/SubmissionsControl';
 
 
 import './App.css';
@@ -83,7 +84,14 @@ function App() {
             path="/favedetails"
             >
             <FaveDetails/>
-            
+
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/submissionscontrol"
+            >
+            <SubmissionsControl/>
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -170,6 +178,7 @@ function App() {
           </Route>
             {/* END DO NOT DELETE -_______________________------ */}
 {/* 
+
             <Route
             exact
             path="/home"

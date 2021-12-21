@@ -20,7 +20,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 
 
-function ResultsPage() {
+
+function SubmissionsControl() {
 
   const activity = useSelector((store) => store.activity);
   const tag = useSelector((store) => store.tag);
@@ -35,8 +36,8 @@ function ResultsPage() {
 
     useEffect(() => {
         // dispatch({ type: ''});
-        dispatch({ type: 'FETCH_SEARCH'});
-        dispatch({ type: 'FETCH_FAVORITE'});
+        dispatch({ type: 'FETCH_ACTIVITY'});
+        dispatch({type: 'FETCH_SUBMISSIONS'});
     }, []);
 
     return (
@@ -45,17 +46,17 @@ function ResultsPage() {
             <h1>Activity List</h1>
             </div>
             <section className="mapping">
-                {search.map(search => { {/* mapping through the store */}
+                {activity.map(activity => { {/* mapping through the store */}
                 const setOneActivity = () => { 
                     //This ^^ function needs to be defined within the mapping.
                     // if defined outside, it won't work.
                     dispatch( {
                         type: 'SET_ONE_ACTIVITY', 
                         payload:{
-                            id: search.id,
-                            name: search.title, 
-                            description: search.description, 
-                            actors: search.actors
+                            id: activity.id,
+                            name: activity.title, 
+                            description: activity.description, 
+                            actors: activity.actors
                             }
                         } )
                 }
@@ -64,7 +65,6 @@ function ResultsPage() {
                         <div className="activityAppending">
                             <div>
                             <Grid
-                                
                                 container
                                 direction="column"
                                 // spacing={0} 
@@ -72,7 +72,7 @@ function ResultsPage() {
                                 justify="center"
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
-                                <Grid item xs={12} className="results">
+                                <Grid item xs={12} className="movies">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
@@ -82,11 +82,11 @@ function ResultsPage() {
                                         borderRadius: 7,
                                         boxShadow: 1
                                 }}>
-                                        {/* MOVIE CARDS*/}
+                                        {/* ACTIVITY CARDS*/}
                                         <Link to="/details">
-                                        <CardContent key={search.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{search.title}</Typography>
-                                            <Typography variant="h6">{search.description}</Typography>
+                                        <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
+                                            <Typography variant="h3">{activity.title}</Typography>
+                                            <Typography variant="h6">{activity.description}</Typography>
                                         </CardContent>
                                         </Link>
                                     </Card>
@@ -125,4 +125,4 @@ function ResultsPage() {
     );
 }
 
-export default ResultsPage;
+export default SubmissionsControl;

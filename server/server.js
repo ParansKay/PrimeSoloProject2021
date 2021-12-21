@@ -13,6 +13,7 @@ const activityRouter = require('./routes/activity.router');
 const tagRouter = require('./routes/tag.router');
 const searchRouter = require('./routes/search.router');
 const favoriteRouter = require('./routes/favorite.router');
+const submissionsRouter = require('./routes/submissions.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/activity', activityRouter);
 app.use('/api/tag', tagRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/favorite', favoriteRouter);
+app.use('/api/submissions', submissionsRouter);
 
 // Serve static files
 app.use(express.static('build'));

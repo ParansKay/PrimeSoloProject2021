@@ -134,11 +134,14 @@ function DetailsPage(){
                           {/* Styling allows us to  */}
                       {/* <ToggleButton> */}
                       <div>
+                          {/* if the activity is liked, */}
                         {isLiked?
+                            // onClick will run the checkLikes button (to determine how to render the icon + POST / DELETE route)
                           <Button  right="40%" 
                             onClick={checkLikes}>
                             <StarIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "17px", left: "340px"}}/>
                           </Button>: 
+                          // otherwise, the icon will be empty. onClick will still run the checkLikes function.
                           <Button  right="40%" 
                             onClick={checkLikes}>
                             <StarOutlineIcon fontSize="large" style={{ color: 'gray', position: "absolute", top: "17px", left: "340px"}}/>

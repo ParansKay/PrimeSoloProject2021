@@ -4,6 +4,7 @@ import axios from 'axios';
 function* activitySaga() {
     yield takeLatest('FETCH_ACTIVITY', fetchActivity);
     yield takeLatest('ADD_ACTIVITY', postNewActivity);
+    yield takeLatest ('FETCH_SUBMISSIONS', fetchSubmissions);
   }
 
   function* fetchActivity() {
@@ -18,6 +19,19 @@ function* activitySaga() {
       console.log('User get request failed', error);
     }
   }
+
+  function* fetchSubmissions() {
+    console.log('in FETCH_SUBMISSIONS----!');
+  try {
+    const response = yield axios.get('/api/submissions');
+    console.log( 'response is------>', response.data );
+    yield put({ 
+        type: 'SET_ACTIVITY', 
+        payload: response.data });
+  } catch (error) {
+    console.log('User get request failed', error);
+  }
+}
 
   function* postNewActivity(action){
     console.log('in ADD_ACTIVITY----!');
