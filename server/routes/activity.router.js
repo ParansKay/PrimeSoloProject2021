@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const queryText = `SELECT * FROM activity where "clearance_level" < ${req.user.access_level}`;
+  const queryText = `SELECT * FROM activity where "clearance_level" = 0`;
   pool.query(queryText, req.query.id)
     .then( result => {
       res.send(result.rows);
