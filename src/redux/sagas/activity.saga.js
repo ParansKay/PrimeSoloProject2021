@@ -21,10 +21,10 @@ function* activitySaga() {
     }
   }
 
-  function* addClearanceLevel(){
+  function* addClearanceLevel(action){
     console.log('in ADD_CLEARANCE----!');
     try {
-      const response = yield axios.put(`/api/activity?id=${action.payload}`, {clearance_level: action.payload.clearance});
+      const response = yield axios.put(`/api/activity?id=${action.payload.activity_id}`, {clearance_level: action.payload.clearance});
       console.log( 'response is------>', response.data );
       yield put({ 
           type: 'SET_ACTIVITY', 

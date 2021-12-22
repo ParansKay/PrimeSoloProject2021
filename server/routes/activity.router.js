@@ -23,10 +23,11 @@ router.get('/', (req, res) => {
  */
 router.put('/', (req, res) => {
   // GET route code here
+  console.log( 'req.query is: ---->', req.query);
   const updateActivityClearanceQuery = 
-  `INSERT INTO "activity" ("clearance_level")
-  VALUE $1
-  WHERE "activity".id=${req.body.id}`;
+  `UPDATE "activity"
+  SET "clearance_level"= 0
+  WHERE "activity".id=${req.query.id}`;
   pool.query(updateActivityClearanceQuery, req.query.clearence_level)
     .then( result => {
       res.send(result.rows);

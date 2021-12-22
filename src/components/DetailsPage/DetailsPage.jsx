@@ -34,7 +34,8 @@ function DetailsPage(){
         dispatch({ 
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
-        dispatch({type: 'FETCH_FAVORITE'});
+        dispatch({type: 'FETCH_FAVORITE',
+                  payload: user.id});
         checkLikes();
     }, []);
 

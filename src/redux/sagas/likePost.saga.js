@@ -17,7 +17,10 @@ function* postLike(action){
      console.log('adding new activity to favorite:', like.data);
      yield put({  
          //once that is done, update FETCH_FAVORITES to append the most up-to-date info to the DOM
-         type: 'FETCH_FAVORITE'});
+         type: 'FETCH_FAVORITE',
+         //we NEED a payload here, otherwise the server gives us a 500 error and
+         // updates on likes become asynchronous
+         payload: action.payload.user_id});
  } catch {
      console.log('error adding new like to favorites');
  } 
@@ -34,7 +37,10 @@ function* postLike(action){
      console.log('removing activity from favorite:', like.data);
      yield put({ 
          //once that is done, update FETCH_FAVORITES to append the most up-to-date info to the DOM
-         type: 'FETCH_FAVORITE'}); 
+         type: 'FETCH_FAVORITE',
+         //we NEED a payload here, otherwise the server gives us a 500 error and
+         // updates on likes become asynchronous
+        payload: action.payload.user_id}); 
  } catch {
      console.log('error removing like from favorites');
  } 

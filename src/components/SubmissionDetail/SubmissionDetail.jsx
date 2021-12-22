@@ -32,7 +32,6 @@ function SubmissionDetailPage(){
         dispatch({ 
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
-        dispatch({type: 'FETCH_FAVORITE'});
     }, []);
 
     const approvePost = () =>{
