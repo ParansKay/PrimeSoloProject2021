@@ -25,6 +25,7 @@ import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import ActivityPage from '../ActivityPage/ActivityPage';
 import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
 import SubmissionsControl from '../SubmissionsControl/SubmissionsControl';
+import SubmissionDetail from '../SubmissionDetail/SubmissionDetail';
 
 
 import './App.css';
@@ -92,6 +93,13 @@ function App() {
             path="/submissionscontrol"
             >
             <SubmissionsControl/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/submissiondetail"
+            >
+            <SubmissionDetail/>
           </ProtectedRoute>
 
           <ProtectedRoute

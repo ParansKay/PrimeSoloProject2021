@@ -5,12 +5,26 @@ function* activitySaga() {
     yield takeLatest('FETCH_ACTIVITY', fetchActivity);
     yield takeLatest('ADD_ACTIVITY', postNewActivity);
     yield takeLatest ('FETCH_SUBMISSIONS', fetchSubmissions);
+    yield takeLatest ('ADD_CLEARANCE', addClearanceLevel);
   }
 
   function* fetchActivity() {
       console.log('in FETCH_ACTIVITY----!');
     try {
       const response = yield axios.get('/api/activity');
+      console.log( 'response is------>', response.data );
+      yield put({ 
+          type: 'SET_ACTIVITY', 
+          payload: response.data });
+    } catch (error) {
+      console.log('User get request failed', error);
+    }
+  }
+
+  function* addClearanceLevel(){
+    console.log('in ADD_CLEARANCE----!');
+    try {
+      const response = yield axios.put(`/api/activity?id=${action.payload}`, {clearance_level: action.payload.clearance});
       console.log( 'response is------>', response.data );
       yield put({ 
           type: 'SET_ACTIVITY', 

@@ -43,7 +43,7 @@ function SubmissionsControl() {
     return (
         <main>
             <div className="activityListMap">
-            <h1>Activity List</h1>
+            <h1>User Submissions</h1>
             </div>
             <section className="mapping">
                 {activity.map(activity => { {/* mapping through the store */}
@@ -83,7 +83,7 @@ function SubmissionsControl() {
                                         boxShadow: 1
                                 }}>
                                         {/* ACTIVITY CARDS*/}
-                                        <Link to="/details">
+                                        <Link to="/submissiondetail">
                                         <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{activity.title}</Typography>
                                             <Typography variant="h6">{activity.description}</Typography>

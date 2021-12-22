@@ -18,7 +18,25 @@ router.get('/', (req, res) => {
     })
 });
 
-/**
+/* 
+ * PUT route template
+ */
+router.put('/', (req, res) => {
+  // GET route code here
+  const updateActivityClearanceQuery = 
+  `INSERT INTO "activity" ("clearance_level")
+  VALUE $1
+  WHERE "activity".id=${req.body.id}`;
+  pool.query(updateActivityClearanceQuery, req.query.clearence_level)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: could not update activity clearance level', err);
+      res.sendStatus(500)
+    })
+});
+/* 
  * POST route template
  */
  router.post('/', (req, res) => {
