@@ -34,7 +34,7 @@ function SubmissionDetailPage(){
     const activity = useSelector((store) => store.activity);
 
     const history = useHistory();
-    
+
      // On page load, connect to the saga to fetch tags, specifically,
     // look for the id of the activity we clicked on the results/activity page
     useEffect(() => {
@@ -51,10 +51,6 @@ function SubmissionDetailPage(){
 
     const handleClose = () => {
         setOpen(false);
-        approvePost();
-        const timer = setTimeout(()=>{
-            history.push("/submissionscontrol");
-            }, 200);
     };
 
     const approvePost = () =>{
@@ -66,6 +62,9 @@ function SubmissionDetailPage(){
                 clearance: 0
             }
         })
+        const timer = setTimeout(()=>{
+            history.push("/submissionscontrol");
+            }, 200);
     }
     // FIXED NAV BAR
     const [value, setValue] = React.useState(0);
@@ -121,7 +120,7 @@ function SubmissionDetailPage(){
                                     </DialogContent>
                                     <DialogActions>
                                     <Button onClick={handleClose}>Not yet</Button>
-                                    <Button onClick={handleClose} autoFocus>
+                                    <Button onClick={approvePost} autoFocus>
                                         Approve!
                                     </Button>
                                     </DialogActions>
