@@ -73,6 +73,10 @@ function SubmissionDetailPage(){
 
     const openEditPage = () =>{
         console.log( 'editing now' );
+        dispatch({
+            type: 'FETCH_ACTIVITY',
+            payload: oneActivityReducer})
+            history.push("/newsubmit");
     }
 
     // FIXED NAV BAR
