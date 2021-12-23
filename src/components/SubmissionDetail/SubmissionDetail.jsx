@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useNavigate } from 'react-router-dom';
 //MATERIAL UI IMPORT
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -16,6 +16,12 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Paper from '@mui/material/Paper';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 function SubmissionDetailPage(){
     // const[name, setName] = useState( null );
@@ -25,7 +31,10 @@ function SubmissionDetailPage(){
     const store = useSelector((store) => store);
     const favorite = useSelector((store) => store.favorite);
     const user = useSelector((store) => store.user);
+    const activity = useSelector((store) => store.activity);
 
+    const history = useHistory();
+    
      // On page load, connect to the saga to fetch tags, specifically,
     // look for the id of the activity we clicked on the results/activity page
     useEffect(() => {
@@ -33,6 +42,20 @@ function SubmissionDetailPage(){
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
     }, []);
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        approvePost();
+        const timer = setTimeout(()=>{
+            history.push("/submissionscontrol");
+            }, 200);
+    };
 
     const approvePost = () =>{
         console.log( 'approving this post' );
@@ -79,9 +102,30 @@ function SubmissionDetailPage(){
                             {/* BUTTONS */}
                             <div>
                                 <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}
-                                    onClick={approvePost}>
+                                    onClick={handleClickOpen}>
                                     <CheckBoxIcon fontSize="large"/>
                                 </Button>
+                                <Dialog
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title">
+                                    {"Would you like to approve this submission?"}
+                                    </DialogTitle>
+                                    <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                       By clicking approve, you are adding this submission for all users to see. If you'd like to continue editing, click "not yet".
+                                    </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                    <Button onClick={handleClose}>Not yet</Button>
+                                    <Button onClick={handleClose} autoFocus>
+                                        Approve!
+                                    </Button>
+                                    </DialogActions>
+                                </Dialog>
                             </div>
                           {/* NUMBER OF ACTORS */}
                           <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>

@@ -40,7 +40,7 @@ function SubmissionsControl() {
         dispatch({type: 'FETCH_SUBMISSIONS'});
     }, []);
 
-    return (
+    return ( 
         <main>
             <div className="activityListMap">
             <h1>User Submissions</h1>
