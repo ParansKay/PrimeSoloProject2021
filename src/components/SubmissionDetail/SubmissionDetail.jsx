@@ -21,6 +21,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 function SubmissionDetailPage(){
@@ -43,6 +44,7 @@ function SubmissionDetailPage(){
             payload: oneActivityReducer.id });
     }, []);
 
+    //HANLDE POP-UP MODAL
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -52,7 +54,9 @@ function SubmissionDetailPage(){
     const handleClose = () => {
         setOpen(false);
     };
+    // END HANDLE POP-UP MODAL
 
+    // SUBMISSION APPROVAL FUNCTION
     const approvePost = () =>{
         console.log( 'approving this post' );
         dispatch({
@@ -65,7 +69,12 @@ function SubmissionDetailPage(){
         const timer = setTimeout(()=>{
             history.push("/submissionscontrol");
             }, 200);
+    } //END EUBMISSION APPROVAL FUNCTION
+
+    const openEditPage = () =>{
+        console.log( 'editing now' );
     }
+
     // FIXED NAV BAR
     const [value, setValue] = React.useState(0);
     //END FIXED NAV BAR 
@@ -100,6 +109,10 @@ function SubmissionDetailPage(){
                           <Typography variant="h5">{oneActivityReducer.name}</Typography>
                             {/* BUTTONS */}
                             <div>
+                                <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "285px"}}
+                                    onClick={openEditPage}>
+                                    <EditIcon fontSize="large"/>
+                                </Button>
                                 <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}
                                     onClick={handleClickOpen}>
                                     <CheckBoxIcon fontSize="large"/>
