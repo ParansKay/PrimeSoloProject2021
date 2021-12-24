@@ -24,7 +24,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 
-function NewActivitySubmit(){
+function EditPage(){
     // const[name, setName] = useState( null );
     const dispatch = useDispatch();
 
@@ -40,49 +40,48 @@ function NewActivitySubmit(){
     const [value, setValue] = React.useState(0);
     //END FIXED NAV BAR 
 
-    
-
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
-    const [newActivity, setNewActivity] = useState({
-        title: '',
-        description: '',
-        actors: '',
-        tags: ''
+    const [editedActivity, setEditedActivity] = useState({
+        activity_id: oneActivityReducer.id,
+        title: oneActivityReducer.name,
+        description: oneActivityReducer.description,
+        actors: oneActivityReducer.actors,
+        tags: tag[0].id
     });
     //updating the value of title based on the input field
     const addTitle = (event) => {
         //changing only the title property in newActivity to the value in our input field
-        setNewActivity({...newActivity, title: event.target.value});
-        console.log( 'new title is:', newActivity.title );
+        setEditedActivity({...editedActivity, title: event.target.value});
+        console.log( 'new title is:', editedActivity.title );
     };
 
     //updating the value of description based on the input field
     const addDescription = (event) => {
         //changing only the description property in newActivity to the value in our input field
-        setNewActivity({...newActivity, description: event.target.value});
-        console.log( 'new description is:', newActivity.description );
+        setEditedActivity({...editedActivity, description: event.target.value});
+        console.log( 'new description is:', editedActivity.description );
     };
 
     //updating the value of genre based on the input field
     const addActors = (event) => {
         //changing only the actors property in newActivity to the value in our input field
-        setNewActivity({...newActivity, actors: event.target.value});
-        console.log( 'new actor value is:', newActivity.actors );
+        setEditedActivity({...editedActivity, actors: event.target.value});
+        console.log( 'new actor value is:', editedActivity.actors );
     };
 
     const addTag = (event) => {
         //changing only the tag property in newActivity to the value in our input field
-        setNewActivity({...newActivity, tags: event.target.value});
-        console.log( 'new tag is:', newActivity.tags );
+        setEditedActivity({...editedActivity, tags: event.target.value});
+        console.log( 'new tag is:', editedActivity.tags );
     };
 
-    const addNewActivity = (event) => {
+    const editThisActivity = (event) => {
         dispatch({ 
-            type: 'ADD_ACTIVITY',
-            payload: newActivity
+            type: 'EDIT_ACTIVITY',
+            payload: editedActivity
         }, []);
-        console.log('adding new activity!', newActivity)
+        console.log('editing this activity!', editedActivity)
     };
 
     return(
@@ -101,7 +100,7 @@ function NewActivitySubmit(){
                         {/* HEADER */}
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                               Add a new activity here
+                               Let's edit this activity
                             </Typography>
                         </CardContent>
                         {/* TITLE INPUT */}
@@ -111,7 +110,7 @@ function NewActivitySubmit(){
                                 label="activity title"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
-                                defaultValue={newActivity.title}
+                                defaultValue={editedActivity.title}
                                 onChange={ ( event )=>addTitle( event )}
                                 />
                         </CardContent> 
@@ -124,7 +123,7 @@ function NewActivitySubmit(){
                                         // this ID needs to be the same as the ID of InputLabel ^^
                                         id="actors-select"
                                         // but this id needs to be different from the other two above ^^
-                                        value={newActivity.actors}
+                                        value={editedActivity.actors}
                                         label="actorsSelet"
                                         onChange={( event )=>addActors( event )}
                                     >
@@ -147,7 +146,7 @@ function NewActivitySubmit(){
                                 multiline
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
-                                defaultValue={newActivity.description}
+                                defaultValue={editedActivity.description}
                                 onChange={ ( event )=>addDescription( event )}
                                 />
                         </CardContent> 
@@ -160,12 +159,12 @@ function NewActivitySubmit(){
                                         // this ID needs to be the same as the ID of InputLabel ^^
                                         id="tag-select"
                                         // but this id needs to be different from the other two above ^^
-                                        value={newActivity.tags}
+                                        value={editedActivity.tags}
                                         label="tagSelect"
                                         onChange={( event )=>addTag( event )}
                                     >
                                         <MenuItem value="">
-                                            <em>pick a tag</em>
+                                            {/* <em>{editedActivity.tags}</em> */}
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
                                             <MenuItem value={1}>Breath Support</MenuItem>
@@ -195,7 +194,7 @@ function NewActivitySubmit(){
                                     <Button size="large" variant="outlined" color="warning" fontSize="large">Cancel</Button>
                                 </Link>
                                 <Link to="/">
-                                    <Button className="next" variant="contained" color="warning" size="large" onClick={addNewActivity}>Save</Button>
+                                    <Button className="next" variant="contained" color="warning" size="large" onClick={editThisActivity}>Save</Button>
                                 </Link>
                             </div>
                         </CardActions>
@@ -228,4 +227,4 @@ function NewActivitySubmit(){
     )
 }
 
-export default NewActivitySubmit;
+export default EditPage;

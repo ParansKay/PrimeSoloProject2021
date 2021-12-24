@@ -26,6 +26,7 @@ import ActivityPage from '../ActivityPage/ActivityPage';
 import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
 import SubmissionsControl from '../SubmissionsControl/SubmissionsControl';
 import SubmissionDetail from '../SubmissionDetail/SubmissionDetail';
+import EditPage from '../EditPage/EditPage';
 
 
 import './App.css';
@@ -100,6 +101,13 @@ function App() {
             path="/submissiondetail"
             >
             <SubmissionDetail/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/editpage"
+            >
+            <EditPage/>
           </ProtectedRoute>
 
           <ProtectedRoute

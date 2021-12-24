@@ -76,7 +76,7 @@ function SubmissionDetailPage(){
         dispatch({
             type: 'FETCH_ACTIVITY',
             payload: oneActivityReducer})
-            history.push("/newsubmit");
+            history.push("/editpage");
     }
 
     // FIXED NAV BAR

@@ -5,6 +5,7 @@ function* activitySaga() {
     yield takeLatest('FETCH_ACTIVITY', fetchActivity);
     yield takeLatest('ADD_ACTIVITY', postNewActivity);
     yield takeLatest ('FETCH_SUBMISSIONS', fetchSubmissions);
+    yield takeLatest ('EDIT_ACTIVITY', editActivity);
     yield takeLatest ('ADD_CLEARANCE', addClearanceLevel);
   }
 
@@ -12,6 +13,19 @@ function* activitySaga() {
       console.log('in FETCH_ACTIVITY----!');
     try {
       const response = yield axios.get('/api/activity');
+      console.log( 'response is------>', response.data );
+      yield put({ 
+          type: 'SET_ACTIVITY', 
+          payload: response.data });
+    } catch (error) {
+      console.log('User get request failed', error);
+    }
+  }
+
+  function* editActivity(action){
+    console.log('in EDIT_ACTIVITY----!');
+    try {
+      const response = yield axios.put(`/api/activity/edit?id=${action.payload.activity_id}`, {title: action.payload.title, description: action.payload.description, actors: action.payload.actors, tag_id: action.payload.tags});
       console.log( 'response is------>', response.data );
       yield put({ 
           type: 'SET_ACTIVITY', 

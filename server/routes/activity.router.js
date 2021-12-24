@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 /* 
  * PUT route template
  */
+// CLEARANCE PUT ROUTE 
 router.put('/', (req, res) => {
   // GET route code here
   console.log( 'req.query is: ---->', req.query);
@@ -37,6 +38,40 @@ router.put('/', (req, res) => {
       res.sendStatus(500)
     })
 });
+
+//ACTIVITY EDIT PUT ROUTE
+router.put('/edit', (req, res) => {
+  // GET route code here
+  const updateActivity = 
+  `UPDATE "activity"
+  SET "title"=$1, "description"=$2, "actors"=$3
+  WHERE "activity".id=${req.query.id}`;
+  pool.query(updateActivity, [req.body.title, req.body.description, req.body.actors])
+    .then( result => {
+      res.send(result.rows);
+
+      // Now handle the tag update reference
+      const updateTagQuery = 
+      `UPDATE "activity_tag"
+      SET "tag_id"=$1
+      WHERE "activity_tag".activity_id=${req.query.id}`;
+      pool.query(updateTagQuery, [req.body.tag_id]).then(result => {
+        //Now that both are done, send back success!
+      }).catch(err => {
+        // catch for second query
+        console.log(err);
+        res.sendStatus(500)
+      })
+
+    // Catch for first query
+     }).catch(err => {
+      console.log('ERROR: could not update activity', err);
+      res.sendStatus(500)
+    })
+});
+
+
+
 /* 
  * POST route template
  */

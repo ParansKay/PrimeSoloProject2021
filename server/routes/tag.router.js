@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const queryText = `SELECT tag.name , activity.title FROM activity
+  const queryText = `SELECT tag.name, tag.id , activity.title FROM activity
   JOIN activity_tag ON activity.id=activity_tag.activity_id
   JOIN tag ON activity_tag.tag_id=tag.id
   WHERE activity.id=$1`
