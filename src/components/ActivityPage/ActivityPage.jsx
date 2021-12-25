@@ -82,7 +82,7 @@ function ActivityPage() {
                                         boxShadow: 1
                                 }}>
                                         {/* ACTIVITY CARDS*/}
-                                        <Link to="/details">
+                                        <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}>
                                         <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{activity.title}</Typography>
                                             <Typography variant="h6">{activity.description}</Typography>

@@ -35,8 +35,8 @@ function ResultsPage() {
 
     useEffect(() => {
         // dispatch({ type: ''});
-        dispatch({ type: 'FETCH_SEARCH'});
-        dispatch({ type: 'FETCH_FAVORITE'});
+        // dispatch({ type: 'FETCH_SEARCH' }); //when I have this un-commented, I get a server 500 error in my saga
+        // dispatch({ type: 'FETCH_FAVORITE'});
     }, []);
 
     return (
@@ -83,7 +83,7 @@ function ResultsPage() {
                                         boxShadow: 1
                                 }}>
                                         {/* MOVIE CARDS*/}
-                                        <Link to="/details">
+                                        <Link to="/details" style={{ textDecoration: 'none', color: 'black'}}>
                                         <CardContent key={search.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{search.title}</Typography>
                                             <Typography variant="h6">{search.description}</Typography>
