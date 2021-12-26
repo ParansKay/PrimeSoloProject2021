@@ -117,7 +117,7 @@ function NewActivitySubmit(){
                         </CardContent> 
                         {/* ACTORS INPUT */}
                         <CardContent>
-                            <FormControl className="formClass" sx={{ minWidth: 200,  }}>
+                            <FormControl className="formClass" sx={{ minWidth: 200 }}>
                                 <InputLabel id="actors-select-label">How many actors?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
