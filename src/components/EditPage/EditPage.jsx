@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
 import * as React from 'react';
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -27,6 +27,8 @@ import Paper from '@mui/material/Paper';
 function EditPage(){
     // const[name, setName] = useState( null );
     const dispatch = useDispatch();
+
+    const history = useHistory();
 
     const user = useSelector((store) => store.user);
     const favorite = useSelector((store) => store.favorite);
@@ -80,12 +82,23 @@ function EditPage(){
         dispatch({ 
             type: 'EDIT_ACTIVITY',
             payload: editedActivity
-        }, []);
-        console.log('editing this activity!', editedActivity)
+        })
+        dispatch( {
+            type: 'SET_ONE_ACTIVITY', 
+            payload:{
+                id: editedActivity.id,
+                name: editedActivity.title, 
+                description: editedActivity.description, 
+                actors: editedActivity.actors
+                }
+            } )
+        const timer = setTimeout(()=>{
+            history.push("/submissiondetail");
+            }, 200);
     };
 
     return(
-        <div className="newmoviepagemargintop">
+        <div className="editpagemargintop">
             <div>
                 <Grid
                     container
@@ -193,9 +206,7 @@ function EditPage(){
                                 <Link to="/">
                                     <Button size="large" variant="outlined" color="warning" fontSize="large">Cancel</Button>
                                 </Link>
-                                <Link to="/">
                                     <Button className="next" variant="contained" color="warning" size="large" onClick={editThisActivity}>Save</Button>
-                                </Link>
                             </div>
                         </CardActions>
                     </Card>

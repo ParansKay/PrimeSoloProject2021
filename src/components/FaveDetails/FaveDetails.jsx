@@ -34,7 +34,8 @@ function FaveDetails(){
         dispatch({ 
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
-        dispatch({type: 'FETCH_FAVORITES'});
+        dispatch({type: 'FETCH_FAVORITES',
+                  payload: user.id});
         checkLikes();
     }, []);
 
