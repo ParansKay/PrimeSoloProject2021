@@ -32,23 +32,26 @@ const StyledTextField = styled(TextField)({
     '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
       color: 'white',
     },
-    // '& .MuiOutlinedInput-notchedOutline': {
-    //   // border-color: #e65100;
-    //   color: 'white'; 
-    // },
     '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
       borderBottomColor: 'white',
     },
     '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: '#f77f00',
       },
-      '&:hover fieldset': {
-        borderColor: 'yellow',
+      '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+        borderColor: '#f77f00',
+        color: 'white',
       },
-      '&.Mui-focused fieldset': {
-        borderColor: 'green',
+      '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+        borderColor: '#f77f00',
       },
+    },
+   ' & .MuiInputBase-root': { //this changes the color of the input text
+      color: 'white',
+    },
+    '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+      color: 'white',
     },
   })
 ;
@@ -78,7 +81,9 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <div className="regheader">
+      <h2>REGISTER NOW</h2>
+      </div>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -92,6 +97,7 @@ function RegisterForm() {
               // alignItems="center" // doesn't work
               justify="center"
               className="centerregistrationinfo"
+              style={{ 'margin-top': '50px'}}
               >
         <Grid>
           <br/>
@@ -103,6 +109,7 @@ function RegisterForm() {
               id="outlined-multiline-static"
               label="First Name"
               variant="outlined"
+              // variant="filled"
               // color="warning"
               type="text"
               name="firstname"
@@ -116,7 +123,7 @@ function RegisterForm() {
 
       {/* LAST NAME INPUT */}
        <div>
-          <TextField
+          <StyledTextField
               id="outlined-multiline-static"
               label="Last Name"
               variant="outlined"
@@ -132,7 +139,7 @@ function RegisterForm() {
       
       {/* USERNAME INPUT */}
        <div>
-          <TextField
+          <StyledTextField
               id="outlined-multiline-static"
               label="Username"
               variant="outlined"
@@ -148,7 +155,7 @@ function RegisterForm() {
      
      {/* PASSWRD INPUT */}
         <div>
-           <TextField
+           <StyledTextField
               id="outlined-multiline-static"
               label="Password"
               variant="outlined"
@@ -160,12 +167,12 @@ function RegisterForm() {
               />
          </div>
 
-        <div>
+        <center>
           <br/>
           <br/>
         {/* <input className="btn" type="submit" name="submit" value="Register" /> */}
-        <Button color="warning" type="submit" variant="contained" name="submit" value="Register">Register</Button>
-       </div>
+        <Button color="warning" type="submit" variant="contained" size="large" name="submit" value="Register" style={{padding: '18px 40px', 'border-radius': '50px', 'font-size':'1.2rem'}}>Register</Button>
+       </center>
       </Box>
          </Grid>
       </Grid>

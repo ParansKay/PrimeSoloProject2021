@@ -7,7 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  background-color: #003049;
+  background-color: #061e2a;
   color: #fcbf49;
 }
 
@@ -116,4 +116,15 @@ input {
 
 #outlined-multiline-static{
   font-size: large;
+}
+
+/* ------------REGISTRATION PAGE------------------- */
+
+#registerbutn{
+  align-items: center;
+}
+
+.regheader{
+  justify-content: center;
+  padding-left: 105px;
 }
