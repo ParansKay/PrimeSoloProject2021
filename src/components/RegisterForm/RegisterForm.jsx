@@ -100,8 +100,6 @@ function RegisterForm() {
               style={{ 'margin-top': '50px'}}
               >
         <Grid>
-          <br/>
-          <br/>
       <Box>
        <div>
           <StyledTextField
@@ -171,7 +169,7 @@ function RegisterForm() {
           <br/>
           <br/>
         {/* <input className="btn" type="submit" name="submit" value="Register" /> */}
-        <Button color="warning" type="submit" variant="contained" size="large" name="submit" value="Register" style={{padding: '18px 40px', 'border-radius': '50px', 'font-size':'1.2rem'}}>Register</Button>
+        <Button color="warning" type="submit" variant="contained" size="large" name="submit" value="Register" style={{padding: '18px 40px', 'border-radius': '50px', 'font-size':'1.2rem', 'background-color':'#d62828'}}>Register</Button>
        </center>
       </Box>
          </Grid>
