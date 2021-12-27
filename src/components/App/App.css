@@ -137,3 +137,11 @@ input {
   font-family: 'Poiret One';
   font-size: 35px;
 }
+
+.loginFormHeader{
+  padding-top: 20px;
+  justify-content: center;
+  padding-left: 130px;
+  font-family: 'Poiret One';
+  font-size: 35px;
+}

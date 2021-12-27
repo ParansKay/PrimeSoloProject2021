@@ -91,7 +91,6 @@ function RegisterForm() {
       )}
 
       <div className="reginfodiv"> 
-      {/* FIRST NAME INPUT */}
         <Grid
               container
               // alignItems="center" // doesn't work
@@ -102,8 +101,8 @@ function RegisterForm() {
         <Grid>
       <Box>
        <div>
+         {/* FIRST NAME INPUT */}
           <StyledTextField
-  
               id="outlined-multiline-static"
               label="First Name"
               variant="outlined"
