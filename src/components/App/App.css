@@ -7,6 +7,8 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: #003049;
+  color: #fcbf49;
 }
 
 img {
@@ -29,11 +31,11 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: #ca3d05;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
+  /* background-color: #00acb0; */
+  /* color: #ac1b1b; */
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -55,7 +57,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #989999;
   text-decoration: none;
 }
 
@@ -110,4 +112,8 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+#outlined-multiline-static{
+  font-size: large;
 }

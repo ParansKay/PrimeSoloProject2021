@@ -29,8 +29,8 @@ import SubmissionDetail from '../SubmissionDetail/SubmissionDetail';
 import EditPage from '../EditPage/EditPage';
 
 
-import './App.css';
 
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
