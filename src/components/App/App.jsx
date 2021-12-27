@@ -27,6 +27,7 @@ import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
 import SubmissionsControl from '../SubmissionsControl/SubmissionsControl';
 import SubmissionDetail from '../SubmissionDetail/SubmissionDetail';
 import EditPage from '../EditPage/EditPage';
+import BottomNavBar from '../BottomNavBar/BottomNavBar';
 
 
 
@@ -44,7 +45,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* this used to be <Nav/> */}
+        <BottomNavBar /> 
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />

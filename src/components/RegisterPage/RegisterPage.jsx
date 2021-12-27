@@ -15,8 +15,8 @@ function RegisterPage() {
       <center>
         <Button
           type="button"
-          type="submit" variant="contained" size="large"
-          style={{padding: '18px 40px', 'border-radius': '50px', 'font-size':'1.2rem', 'background-color':'#fcbf49'}}
+          type="submit" variant="contained" size="medium"
+          style={{padding: '10px 30px', 'border-radius': '50px', 'font-size':'1.2rem', 'background-color':'#fcbf49'}}
           className="btn btn_asLink"
           onClick={() => {
             history.push('/login');
