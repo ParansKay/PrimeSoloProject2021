@@ -36,10 +36,6 @@ function UserPage() {
   //defning dispatch
   const dispatch = useDispatch();
 
-      // FIXED NAV BAR
-      const [value, setValue] = React.useState(0);
-      //END FIXED NAV BAR 
-
 //   useEffect(() => {
 //     dispatch({ type: 'FETCH_SEARCH'});
 // }, []);
@@ -129,28 +125,7 @@ function UserPage() {
             <Button onClick={getSearchResults}>Show me Whata-to-do!</Button>
         </div>
         </CardActions>
-        <div className="bottomNavBar">
-                <Box sx={{ width: 500 }}>
-                    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                        <BottomNavigation
-                            showlabels
-                            value={value}
-                            onChange={(event, newValue) => {
-                            setValue(newValue);
-                            }}
-                        >
-                            {/* Link HOME ICON to MovieList page */}
-                            <Link to="/">
-                            <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                            </Link>
-                            {/* Link ADD NEW ICON to AddMovie page */}
-                            <Link to="/newsubmit">
-                            <BottomNavigationAction icon={<AddCircleIcon />} />
-                            </Link>
-                        </BottomNavigation>
-                    </Paper>
-                </Box>
-                </div>
+  
         {/* <p>Your ID is: {user.id}</p> */}
         {/* <LogOutButton className="btn" /> */}
     </Card>

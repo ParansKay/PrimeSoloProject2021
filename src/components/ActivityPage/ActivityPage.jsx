@@ -29,10 +29,6 @@ function ActivityPage() {
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
   const dispatch = useDispatch();
 
-    //for the fixed button on page
-    // FIXED NAV BAR
-    const [value, setValue] = React.useState(0);
-    //END FIXED NAV BAR 
 
     useEffect(() => {
         // dispatch({ type: ''});
@@ -96,28 +92,6 @@ function ActivityPage() {
                     );
                 })}
             </section>
-            <div className="bottomNavBar">
-                <Box sx={{ width: 500 }}>
-                    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                        <BottomNavigation
-                            showlabels
-                            value={value}
-                            onChange={(event, newValue) => {
-                            setValue(newValue);
-                            }}
-                        >
-                            {/* Link HOME ICON to MovieList page */}
-                            <Link to="/">
-                            <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                            </Link>
-                            {/* Link ADD NEW ICON to AddMovie page */}
-                            <Link to="/addactivity">
-                            <BottomNavigationAction icon={<AddCircleIcon />} />
-                            </Link>
-                        </BottomNavigation>
-                    </Paper>
-                </Box>
-                </div>
 
         </main>
 

@@ -15,6 +15,9 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import InfoIcon from '@mui/icons-material/Info';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import LogoutIcon from '@mui/icons-material/Logout';
+import StarIcon from '@mui/icons-material/Star';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -41,10 +44,11 @@ return (
                 setValue(newValue);
                 }}
             >
-            {/* Link HOME ICON to MovieList page */}
-            <Link to="/home">
-            <BottomNavigationAction label="Home" size="large" icon={<HomeIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
-            </Link>
+            {/* Link HOME ICON to homepage page */}
+                <Link to="/home">
+                <BottomNavigationAction label="Home" size="large" icon={<HomeIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
+                </Link>
+
             <div>
                 {/* If no user is logged in, show these links */}
                 {user.id === null &&
@@ -54,28 +58,41 @@ return (
                 </Link>
                 }
 
+                {/* If no user is logged in, show these links */}
+                {user.access_level === 10 &&
+                // If there's no user, show login/registration links
+                <Link to="/submissionscontrol">
+                <BottomNavigationAction label="Home" size="large" icon={<ModeEditIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />  
+                </Link>
+
+
+
+                }
+
                 {/* If a user is logged in, show these links */}
                 {user.id && (
                 <>
-                <Link className="navLink" to="/user">
+                {/* <Link className="navLink" to="/user">
                 Home
+                </Link> */}
+
+                <Link to="/favorites">
+                <BottomNavigationAction label="Home" size="large" icon={<StarIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
                 </Link>
 
-                <Link className="navLink" to="/favorites">
-                Favorites Page
-                </Link>
-
-                <Link className="navLink" to="/results">
+                {/* <Link className="navLink" to="/results">
+                
                 Results Page
-                </Link>
-
-                <LogOutButton className="navLink" icon={<InfoIcon style={{'color':'#003049', 'font-size':'30px'}}/>}/>
+                </Link> */}
+                
+                
+                <LogOutButton style={{'color':'#003049', 'font-size':'30px'}}/>
                 </>
                 )}
 
-
                 <Link to="/about">
                 <BottomNavigationAction label="Home" size="large" icon={<InfoIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
+                {/* About */}
                 </Link>
     
             </div>
