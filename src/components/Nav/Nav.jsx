@@ -16,7 +16,7 @@ export default function ButtonAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar style={{'background-color':'#061e2a', 'color':'#fcbf49', 'font-family':'Poiret One'}}>
           <Typography className="logoonavbar" size="large" style={{'font-family':'Poiret One'}} variant="h6" component="div" sx={{ flexGrow: 1 }}>
             WHAT-A-TO-DO
