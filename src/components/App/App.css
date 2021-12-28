@@ -151,3 +151,8 @@ input {
 .logoonavbar{
   font-family: 'Poiret One';
 }
+
+.welcomeUserName{
+  justify-content: center;
+  align: center
+}

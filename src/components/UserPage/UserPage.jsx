@@ -62,19 +62,22 @@ function UserPage() {
 
 
   return (
-    <Card>
+    <Card style={{'background-color':'#061e2a', 'color':'white'}}>
       {/* USER GREETING and Quote*/}
       <div className="helloUser">
         <div className="breaksDiv">
           <br/>
           <br/>
-          <br/>
-          <br/>
+          {/* <br/>
+          <br/> */}
         </div>
-        <CardContent>
+        <CardContent className="welcomeUserName">
             {/* USER GREETING */}
-              <Typography variant="h5">Welcome, {user.first_name}!</Typography>
-              <br></br>
+              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px'}}>Welcome, </Typography>
+              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px'}}>{user.first_name}!</Typography>
+              <br/>
+              <br/>
+              <br/>
                 {/* QUOTE RANDOMIZER */}
                 <div className="quoteRandomizer"> 
                 <Typography align="center">"Example inspirational acting quote"</Typography>
