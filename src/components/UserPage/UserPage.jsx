@@ -65,6 +65,12 @@ function UserPage() {
     <Card>
       {/* USER GREETING and Quote*/}
       <div className="helloUser">
+        <div className="breaksDiv">
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </div>
         <CardContent>
             {/* USER GREETING */}
               <Typography variant="h5">Welcome, {user.first_name}!</Typography>

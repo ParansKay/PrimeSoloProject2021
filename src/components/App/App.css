@@ -10,6 +10,8 @@ body,
 body {
   font-family: 'Roboto';
   margin: 0px;
+  /* padding-top: 60px; */
+  /* margin-top: 40px; */
   background-color: #061e2a;
   color: #fcbf49;
 }
@@ -144,4 +146,8 @@ input {
   padding-left: 130px;
   font-family: 'Poiret One';
   font-size: 35px;
+}
+
+.logoonavbar{
+  font-family: 'Poiret One';
 }

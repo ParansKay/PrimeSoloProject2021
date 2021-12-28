@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { Link, useHistory, useNavigate } from 'react-router-dom';
 
 //MATERIAL UI IMPORT
@@ -17,7 +17,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 import StarIcon from '@mui/icons-material/Star';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -28,6 +28,8 @@ function BottomNavBar(props) {
 // FIXED NAV BAR
 const [value, setValue] = React.useState(0);
 //END FIXED NAV BAR 
+
+const dispatch = useDispatch();
 
 const user = useSelector((store) => store.user);
 
@@ -62,7 +64,7 @@ return (
                 {user.access_level === 10 &&
                 // If there's no user, show login/registration links
                 <Link to="/submissionscontrol">
-                <BottomNavigationAction label="Home" size="large" icon={<ModeEditIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />  
+                <BottomNavigationAction label="Home" size="large" icon={<NoteAltIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />  
                 </Link>
 
 
@@ -85,8 +87,8 @@ return (
                 Results Page
                 </Link> */}
                 
-                
-                <LogOutButton style={{'color':'#003049', 'font-size':'30px'}}/>
+                {/* THE CODE BELOW IS NOW USED IN THE TOP NAV BAR INSTEAD */}
+                {/* <BottomNavigationAction label="LogOut" size="large" onClick={() => dispatch({ type: 'LOGOUT' })} icon={<LogoutIcon style={{'color':'#003049', 'font-size':'30px'}}/>}/> */}
                 </>
                 )}
 

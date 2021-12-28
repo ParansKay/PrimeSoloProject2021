@@ -1,52 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
-import { useSelector } from 'react-redux';
+import * as React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+// MATERIAL UI IMPORTS 
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-function Nav() {
-  const user = useSelector((store) => store.user);
+export default function ButtonAppBar() {
+
+  const dispatch = useDispatch();
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {user.id === null &&
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        }
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar style={{'background-color':'#061e2a', 'color':'#fcbf49', 'font-family':'Poiret One'}}>
+          <Typography className="logoonavbar" size="large" style={{'font-family':'Poiret One'}} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            WHAT-A-TO-DO
+          </Typography>
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
+          <IconButton label="LogOut" size="large" onClick={() => dispatch({ type: 'LOGOUT' })} style={{'color':'#eae2b7', 'font-size':'30px'}}><LogoutIcon/></IconButton>
+            
 
-            <Link className="navLink" to="/favorites">
-              Favorites Page
-            </Link>
-
-            <Link className="navLink" to="/results">
-              Results Page
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
-        
-      </div>
-    </div>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
-
-export default Nav;
