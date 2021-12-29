@@ -118,18 +118,19 @@ function UserPage() {
 
 
   return (
-    <Card style={{'background-color':'#061e2a', 'color':'white'}}>
+    <Card style={{'background-color':'#061e2a', 'color':'white', 'padding-top':'75px', 'padding-bottom':'50px'}}>
       {/* USER GREETING and Quote*/}
       <div className="helloUser">
         <div className="breaksDiv">
+          {/* the follor
+          <br/>   
           <br/>
-          <br/>
-          <br/>
+          <br/> */}
           {/* <br/> */}
         </div>
         <CardContent className="welcomeUserName">
             {/* USER GREETING */}
-              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px'}}>Welcome, </Typography>
+              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px', 'color':'#fcbf49'}}>Welcome, </Typography>
               <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px'}}>{user.first_name}!</Typography>
               <br/>
               <br/>
@@ -149,7 +150,7 @@ function UserPage() {
         {/* INPUT */}
         <div>
           <CardContent>
-            <Typography align="center" variant="h5" style={{'font-family':'Poiret One'}}>Let's figure out Whata-to-do!</Typography>
+            <Typography align="center" variant="h5" style={{'font-family':'Poiret One'}}>Let's figure out What-a-to-do!</Typography>
             <br/>
             <center>
             <StyledForm align="center" className="formClass" sx={{ m: 1, minWidth: 300}}>
@@ -194,7 +195,7 @@ function UserPage() {
       {/* SEARCH BUTTON */}
         <center align="center">
         <div>
-            <Button onClick={getSearchResults} align="center" style={{padding: '15px 30px', 'border-radius': '50px', 'font-size':'17px', 'background-color':'#f77f00', 'color':'white'}}>Show me Whata-to-do!</Button>
+            <Button onClick={getSearchResults} align="center" style={{padding: '15px 30px', 'border-radius': '50px', 'font-size':'17px', 'background-color':'#f77f00', 'color':'white'}}>Show me What-a-to-do!</Button>
         </div>
         </center>
   
