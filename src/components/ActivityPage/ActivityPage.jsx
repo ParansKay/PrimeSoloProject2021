@@ -36,9 +36,9 @@ function ActivityPage() {
     }, []);
 
     return (
-        <main>
+        <main className="mainactivity">
             <div className="activityListMap">
-            <h1>Activity List</h1>
+            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Activity List</Typography>
             </div>
             <section className="mapping">
                 {activity.map(activity => { {/* mapping through the store */}
@@ -65,6 +65,7 @@ function ActivityPage() {
                                 // spacing={0} 
                                 alignItems="center"
                                 justify="center"
+                                style={{'padding-top':'10px'}}
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
                                 <Grid item xs={12} className="movies">
@@ -72,16 +73,17 @@ function ActivityPage() {
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
                                     sx={{minWidth: "400px", 
-                                        minHeight: "380px",
-                                        backgroundColor: "transparent",
+                                        minHeight: "auto",
+                                        backgroundColor: "#f77f00",
                                         borderRadius: 7,
                                         boxShadow: 1
-                                }}>
+                                     }}
+                                >
                                         {/* ACTIVITY CARDS s*/}
                                         <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}>
                                         <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{activity.title}</Typography>
-                                            <Typography variant="h6">{activity.description}</Typography>
+                                            <Typography variant="h6">{activity.description.slice(0, 100)}...</Typography>
                                         </CardContent>
                                         </Link>
                                     </Card>
