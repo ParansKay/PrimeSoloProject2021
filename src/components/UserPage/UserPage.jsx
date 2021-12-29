@@ -150,7 +150,7 @@ function UserPage() {
         {/* INPUT */}
         <div>
           <CardContent>
-            <Typography align="center" variant="h5" style={{'font-family':'Poiret One'}}>Let's figure out What-a-to-do!</Typography>
+            <Typography align="center" variant="h5" style={{'font-family':'Poiret One', 'padding-top':'20px'}}>Let's figure out What-a-to-do!</Typography>
             <br/>
             <center>
             <StyledForm align="center" className="formClass" sx={{ m: 1, minWidth: 300}}>
