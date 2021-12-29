@@ -167,6 +167,11 @@ input {
   padding-bottom: 10px;
 }
 
+.activityDetail{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
 .mainactivity{
   padding-bottom: 80px;
 }
