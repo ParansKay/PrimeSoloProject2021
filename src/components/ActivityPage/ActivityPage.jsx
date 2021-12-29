@@ -39,6 +39,7 @@ function ActivityPage() {
         <main className="mainactivity">
             <div className="activityListMap">
             <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Activity List</Typography>
+            <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON AN EXERCISE TO VIEW MORE DETAILS</Typography>
             </div>
             <section className="mapping">
                 {activity.map(activity => { {/* mapping through the store */}
@@ -72,18 +73,18 @@ function ActivityPage() {
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
-                                    sx={{minWidth: "400px", 
+                                    sx={{minWidth: "410px", 
                                         minHeight: "auto",
-                                        backgroundColor: "#f77f00",
+                                        backgroundColor: "#003049",
                                         borderRadius: 7,
-                                        boxShadow: 1
+                                        boxShadow: 4
                                      }}
                                 >
                                         {/* ACTIVITY CARDS s*/}
                                         <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}>
                                         <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{activity.title}</Typography>
-                                            <Typography variant="h6">{activity.description.slice(0, 100)}...</Typography>
+                                            <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{activity.title}</Typography>
+                                            <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}} >{activity.description.slice(0, 133)}...</Typography>
                                         </CardContent>
                                         </Link>
                                     </Card>
