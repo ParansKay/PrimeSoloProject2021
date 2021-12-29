@@ -21,6 +21,21 @@ const router = express.Router();
           res.sendStatus(500)
         })
 });
+//FAVE ACTIVITY DETAIL GET 
+router.get('/single', (req, res) => {
+  const queryText = `SELECT * FROM "favorite"
+  WHERE "favorite".activity_id=$1 AND favorite.user_id=$2;`
+    console.log( 'req.query.id----->', [req.query.activity_id, req.query.user_id]);
+    pool.query(queryText, [req.query.activity_id, req.query.user_id])
+      .then( result => {
+          console.log( 'SINGLE FAVORITE RESULT:------>', result.rows);
+        res.send(result.rows);
+      })
+      .catch(err => {
+        console.log('ERROR: Get single favorite results', err);
+        res.sendStatus(500)
+      })
+});
 //   }
 
 /**

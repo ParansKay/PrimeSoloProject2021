@@ -44,6 +44,8 @@ function FaveDetails(){
     //the default is false because activities are not liked in their default state,
     //meaning the user has to manually like them, changing the false status to true
    const [isLiked, setIsLiked] = useState();
+
+   
     // creating a function called checkLikes
     // this function checks to see if our favorites table is empty or not 
    const checkLikes =() => {
@@ -116,9 +118,7 @@ function FaveDetails(){
                 user_id: user.id //target the current user id
         }}); 
     }
-    // FIXED NAV BAR
-    const [value, setValue] = React.useState(0);
-    //END FIXED NAV BAR 
+
 
   return(
       <div>
@@ -184,30 +184,6 @@ function FaveDetails(){
           </Grid>
           </div>
           </section>
-          {/* BOTTOM NAV BAR */}
-          <div className="bottomNavBar">
-              <Box sx={{ width: 500 }}>
-                  <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                      <BottomNavigation
-                          showlabels
-                          value={value}
-                          onChange={(event, newValue) => {
-                          setValue(newValue);
-                          }}
-                      >
-                          {/* Link HOME ICON to MovieList page */}
-                          <Link to="/">
-                          <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                          </Link>
-                          {/* Link ADD NEW ICON to AddMovie page */}
-                          <Link to="/addmovie">
-                          <BottomNavigationAction label="Add new movie" icon={<AddCircleIcon />} />
-                          </Link>
-                      </BottomNavigation>
-                  </Paper>
-              </Box>
-          </div>
-          {/* END OF BOTTOM NAV BAR */}
       </div>
   )
 }

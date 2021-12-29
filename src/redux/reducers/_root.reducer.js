@@ -6,6 +6,7 @@ import tag from './tag.reducer';
 import oneActivityReducer from './oneActivityReducer';
 import search from './search.reducer';
 import favorite from './favorite.reducer';
+import singleFaveReducer from './singleFave.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   favorite,
   oneActivityReducer,
   search,
+  singleFaveReducer,
   tag,
   user, // will have an id and username if someone is logged in
 });

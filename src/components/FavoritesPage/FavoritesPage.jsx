@@ -79,7 +79,7 @@ function FavoritesPage() {
                                 }}>
                                         {/* MOVIE CARDS*/}
                                         <Link to="/details">
-                                        <CardContent key={favorite.id} Link to="/favedetails" onClick={setOneActivity}>
+                                        <CardContent key={favorite.id} Link to="/details" onClick={setOneActivity}>
                                             <Typography variant="h3">{favorite.title}</Typography>
                                             <Typography variant="h6">{favorite.description}</Typography>
                                         </CardContent>
