@@ -150,11 +150,11 @@ function UserPage() {
         {/* INPUT */}
         <div>
           <CardContent>
-            <Typography align="center" variant="h5" style={{'font-family':'Poiret One', 'padding-top':'20px'}}>Let's figure out What-a-to-do!</Typography>
+            <Typography align="center" variant="h5" style={{'font-family':'Roboto', 'font-weight': '300', 'font-size': '16px','padding-top':'20px'}}>WHAT DO YOU NEED HELP WITH TODAY?</Typography>
             <br/>
             <center>
             <StyledForm align="center" className="formClass" sx={{ m: 1, minWidth: 300}}>
-                <InputLabel id="tag-select-label">What do you need help with today?</InputLabel>
+                <InputLabel id="tag-select-label">Pick a category</InputLabel>
                     <Select
                         labelId="tag-select-label"
                         // this ID needs to be the same as the ID of InputLabel ^^
