@@ -38,7 +38,7 @@ function FavoritesPage() {
     return (
         <main>
             <div className="activityListMap">
-            <h1>Activity List</h1>
+            <h1>Favorites List</h1>
             </div>
             <section className="mapping">
                 {favorite.map(favorite => { {/* mapping through the store */}

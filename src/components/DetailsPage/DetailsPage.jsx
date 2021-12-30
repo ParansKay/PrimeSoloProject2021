@@ -34,12 +34,6 @@ function DetailsPage(){
      // On page load, connect to the saga to fetch tags, specifically,
     // look for the id of the activity we clicked on the results/activity page (which is stored in the oneActivityReducer.id)
     useEffect(() => {
-        dispatch({ 
-            type: 'FETCH_TAG',
-            payload: oneActivityReducer.id });
-        
-        dispatch({type: 'FETCH_FAVORITE',
-                  payload: user.id});
         dispatch({
             type: 'FETCH_SINGLE',
             payload:{
@@ -47,9 +41,14 @@ function DetailsPage(){
                 activityid: oneActivityReducer.id
             }
         });
+        dispatch({ 
+            type: 'FETCH_TAG',
+            payload: oneActivityReducer.id });
+        
+        dispatch({type: 'FETCH_FAVORITE',
+                  payload: user.id});
     }, []);
 
-    // const [isLiked, setIsLiked] = useState();
 
     console.log('singleFaveReducer is------:', singleFaveReducer);
     
@@ -69,15 +68,28 @@ function DetailsPage(){
            console.log( 'dispatching POST to add this to favorites' );
            // run the function addToFavorites
            addToFavorites();
+           dispatch({
+            type: 'FETCH_SINGLE',
+            payload:{
+                userid: user.id,
+                activityid: oneActivityReducer.id
+            }
+        });
         }
          // otherwise, if the value of isLiked is true, then,
-       else if(singleFaveReducer.length>0){
+       else if( singleFaveReducer.length > 0 ){
             console.log( 'dispatching DELETE to remove this from favorites' );
            //change the value isLiked to the opposite of the current value
             //(so, from true to false),
-            console.log('isLiked in delete is...', isLiked)
             // and run the function removeFromFavorites
             removeFromFavorites();
+            dispatch({
+                type: 'FETCH_SINGLE',
+                payload:{
+                    userid: user.id,
+                    activityid: oneActivityReducer.id
+                }
+            });
        }
    }
 
@@ -131,7 +143,6 @@ function DetailsPage(){
                       {/* <ToggleButton> */}
                       <div>
                           {/* if the activity is liked, */}
-                        {/* {isLiked? */}
                         {singleFaveReducer.length>0?
                             // onClick will run the checkLikes button (to determine how to render the icon + POST / DELETE route)
                           <IconButton  right="40%" 

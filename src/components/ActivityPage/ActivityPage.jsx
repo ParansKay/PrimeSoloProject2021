@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import './MovieList.css'
-import { Link, useHistory, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -28,7 +28,6 @@ function ActivityPage() {
   const search = useSelector((store) => store.search);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
   const singleFaveReducer = useSelector((store) => store.singleFaveReducer);
-  
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -59,7 +58,7 @@ function ActivityPage() {
                         } )
                         const timer = setTimeout(()=>{
                             history.push("/details");
-                            }, 200);
+                            }, 300);
             }
                     return (
                         // appending movie information to the MovieList component
