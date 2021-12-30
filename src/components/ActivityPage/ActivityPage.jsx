@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import './MovieList.css'
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -27,8 +27,10 @@ function ActivityPage() {
   const tag = useSelector((store) => store.tag);
   const search = useSelector((store) => store.search);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
+  const singleFaveReducer = useSelector((store) => store.singleFaveReducer);
+  
   const dispatch = useDispatch();
-
+  const history = useHistory();
 
     useEffect(() => {
         // dispatch({ type: ''});
@@ -55,7 +57,10 @@ function ActivityPage() {
                             actors: activity.actors
                             }
                         } )
-                }
+                        const timer = setTimeout(()=>{
+                            history.push("/details");
+                            }, 200);
+            }
                     return (
                         // appending movie information to the MovieList component
                         <div className="activityAppending">
@@ -81,12 +86,12 @@ function ActivityPage() {
                                      }}
                                 >
                                         {/* ACTIVITY CARDS s*/}
-                                        <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}>
-                                        <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
+                                        {/* <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}> */}
+                                        <CardContent key={activity.id} onClick={setOneActivity}>
                                             <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{activity.title}</Typography>
                                             <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}} >{activity.description.slice(0, 133)}...</Typography>
                                         </CardContent>
-                                        </Link>
+                                        {/* </Link> */}
                                     </Card>
                                 </Grid>
                             </Grid>

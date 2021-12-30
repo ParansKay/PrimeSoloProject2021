@@ -37,6 +37,7 @@ function DetailsPage(){
         dispatch({ 
             type: 'FETCH_TAG',
             payload: oneActivityReducer.id });
+        
         dispatch({type: 'FETCH_FAVORITE',
                   payload: user.id});
         dispatch({
@@ -45,38 +46,35 @@ function DetailsPage(){
                 userid: user.id,
                 activityid: oneActivityReducer.id
             }
-        })
-        checkLikes();
+        });
     }, []);
 
-    const [isLiked, setIsLiked] = useState();
+    // const [isLiked, setIsLiked] = useState();
 
     console.log('singleFaveReducer is------:', singleFaveReducer);
     
-    const checkLikes = () => {
-        if ( singleFaveReducer.length === 0 ){
-            setIsLiked(false);
-        }
-        else if ( singleFaveReducer.length > 0 ){
-            setIsLiked(true);
-        }
-    }// END CHECKLIKES
+    // const checkLikes = () => {
+    //     if ( singleFaveReducer.length > 0 ){
+    //         setIsLiked(true);
+    //     }
+    //     else if ( singleFaveReducer.length === 0 ){
+    //         setIsLiked(false);
+    //     }
+    // }// END CHECKLIKES
 
     const toggleLike = () =>{
         // if the value of isLiked is false, then
-       if( isLiked === false ){
+       if( singleFaveReducer.length === 0 ){
             // set its' value to true (aka not-isLiked =!isLiked)
            console.log( 'dispatching POST to add this to favorites' );
-           setIsLiked(true);
            // run the function addToFavorites
            addToFavorites();
         }
          // otherwise, if the value of isLiked is true, then,
-       else if(( isLiked === true )){
+       else if(singleFaveReducer.length>0){
             console.log( 'dispatching DELETE to remove this from favorites' );
            //change the value isLiked to the opposite of the current value
             //(so, from true to false),
-            setIsLiked(false);
             console.log('isLiked in delete is...', isLiked)
             // and run the function removeFromFavorites
             removeFromFavorites();
@@ -133,7 +131,8 @@ function DetailsPage(){
                       {/* <ToggleButton> */}
                       <div>
                           {/* if the activity is liked, */}
-                        {isLiked?
+                        {/* {isLiked? */}
+                        {singleFaveReducer.length>0?
                             // onClick will run the checkLikes button (to determine how to render the icon + POST / DELETE route)
                           <IconButton  right="40%" 
                             onClick={toggleLike}>
@@ -146,12 +145,13 @@ function DetailsPage(){
                           </IconButton> 
                         }
                       </div>
-                          <Typography variant="h4">{oneActivityReducer.name}</Typography>
-                          {/* NUMBER OF ACTORS */}
-                          <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>
-                      </CardContent>
-                      {/* ACTIVITY DESCRIPTION */}
-                      <CardContent>
+                        {/* ACTIVITY NAME */}
+                        <Typography variant="h4">{oneActivityReducer.name}</Typography>
+                        {/* NUMBER OF ACTORS */}
+                        <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>
+                        </CardContent>
+                        {/* ACTIVITY DESCRIPTION */}
+                        <CardContent>
                           <Typography variant="h6">{oneActivityReducer.description}</Typography>
                           {/* MOVIE GENRE */}
                           <div>

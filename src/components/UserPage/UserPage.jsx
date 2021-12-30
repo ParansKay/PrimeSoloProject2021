@@ -101,6 +101,13 @@ function UserPage() {
       console.log ('you did not select a tag!');
       dispatch( {
         type: 'FETCH_ACTIVITY'})
+    //   dispatch({   //Currently this doesn't seem to contribute to fixing the problem. Should I still keep it?
+    //     type: 'FETCH_SINGLE',
+    //     payload:{
+    //         userid: user.id,
+    //         activityid: activity.id
+    //     }
+    // })
         history.push("/allactivity");
     }
     else{
