@@ -39,7 +39,7 @@ function ActivityPage() {
     return (
         <main className="mainactivity">
             <div className="activityListMap">
-            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Activity List</Typography>
+            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Exercise List</Typography>
             <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON AN EXERCISE TO VIEW MORE DETAILS</Typography>
             </div>
             <section className="mapping">
@@ -73,7 +73,7 @@ function ActivityPage() {
                                 style={{'padding-top':'10px'}}
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
-                                <Grid item xs={12} className="movies">
+                                <Grid item xs={12} className="allactivitiesgrid">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
@@ -86,10 +86,12 @@ function ActivityPage() {
                                 >
                                         {/* ACTIVITY CARDS s*/}
                                         {/* <Link to="/details" style={{ textDecoration: 'none', color: 'black' }}> */}
+                                        <div className="displayedactivitiy">
                                         <CardContent key={activity.id} onClick={setOneActivity}>
                                             <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{activity.title}</Typography>
                                             <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}} >{activity.description.slice(0, 133)}...</Typography>
                                         </CardContent>
+                                        </div>
                                         {/* </Link> */}
                                     </Card>
                                 </Grid>

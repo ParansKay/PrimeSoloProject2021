@@ -154,13 +154,16 @@ input {
 
 .welcomeUserName{
   justify-content: center;
-  align: center
+  align: center;
 }
 
 .quoteRandomizer{
   margin-left: 20px;
   margin-right: 20px;
 }
+
+
+/* --------------ACTIVITY LISTS---------------------------------*/
 
 .activityListMap{
   padding-top: 80px;
@@ -174,4 +177,9 @@ input {
 
 .mainactivity{
   padding-bottom: 80px;
+}
+
+.displayedactivitiy{
+  margin-left: 5px;
+  margin-right: 5px;
 }

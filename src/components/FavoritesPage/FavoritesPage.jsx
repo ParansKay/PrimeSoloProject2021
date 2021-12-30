@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import './MovieList.css'
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -25,7 +25,9 @@ function FavoritesPage() {
   const user = useSelector((store) => store.user);
   const favorite = useSelector((store) => store.favorite);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
+
   const dispatch = useDispatch();
+  const history = useHistory();
 
     //for the fixed button on page
 
@@ -36,9 +38,10 @@ function FavoritesPage() {
     }, []);
 
     return (
-        <main>
+        <main className="mainactivity">
             <div className="activityListMap">
-            <h1>Favorites List</h1>
+            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>My favorites</Typography>
+            <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON AN EXERCISE TO VIEW MORE DETAILS</Typography>
             </div>
             <section className="mapping">
                 {favorite.map(favorite => { {/* mapping through the store */}
@@ -54,6 +57,9 @@ function FavoritesPage() {
                             actors: favorite.actors
                             }
                         } )
+                    const timer = setTimeout(()=>{
+                            history.push("/details");
+                            }, 300);
                 }
                     return (
                         // appending movie information to the MovieList component
@@ -65,25 +71,29 @@ function FavoritesPage() {
                                 // spacing={0} 
                                 alignItems="center"
                                 justify="center"
+                                style={{'padding-top':'10px'}}
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
-                                <Grid item xs={5} className="movies">
+                                <Grid item xs={12} className="allfavesgrid">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
-                                    sx={{minWidth: "400px", 
-                                        minHeight: "380px",
-                                        backgroundColor: "transparent",
-                                        borderRadius: 7,
-                                        boxShadow: 1
-                                }}>
-                                        {/* MOVIE CARDS*/}
-                                        <Link to="/details">
-                                        <CardContent key={favorite.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{favorite.title}</Typography>
-                                            <Typography variant="h6">{favorite.description}</Typography>
+                                   sx={{minWidth: "410px", 
+                                   minHeight: "auto",
+                                   backgroundColor: "#003049",
+                                   borderRadius: 7,
+                                   boxShadow: 4
+                                }}
+                                >
+                                        {/* FAVORITE CARDS*/}
+                                        {/* <Link to="/details"> */}
+                                        <div className="displayedactivitiy">
+                                        <CardContent key={favorite.id} onClick={setOneActivity}>
+                                            <Typography variant="h3" variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}} >{favorite.title}</Typography>
+                                            <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}}>{favorite.description.slice(0, 133)}...</Typography>
                                         </CardContent>
-                                        </Link>
+                                        </div>
+                                        {/* </Link> */}
                                     </Card>
                                 </Grid>
                             </Grid>

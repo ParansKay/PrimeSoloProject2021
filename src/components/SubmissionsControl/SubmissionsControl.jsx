@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import './MovieList.css'
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -27,7 +27,9 @@ function SubmissionsControl() {
   const tag = useSelector((store) => store.tag);
   const search = useSelector((store) => store.search);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
+
   const dispatch = useDispatch();
+  const history = useHistory();
 
     //for the fixed button on page
 
@@ -38,9 +40,10 @@ function SubmissionsControl() {
     }, []);
 
     return ( 
-        <main>
+        <main className="mainactivity">
             <div className="activityListMap">
-            <h1>User Submissions</h1>
+            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>User submissions</Typography>
+            <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON AN EXERCISE TO VIEW MORE DETAILS OR EDIT</Typography>
             </div>
             <section className="mapping">
                 {activity.map(activity => { {/* mapping through the store */}
@@ -56,6 +59,9 @@ function SubmissionsControl() {
                             actors: activity.actors
                             }
                         } )
+                        const timer = setTimeout(()=>{
+                            history.push("/submissiondetail");
+                            }, 300);
                 }
                     return (
                         // appending movie information to the MovieList component
@@ -67,25 +73,28 @@ function SubmissionsControl() {
                                 // spacing={0} 
                                 alignItems="center"
                                 justify="center"
+                                style={{'padding-top':'10px'}}
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
                                 <Grid item xs={12} className="movies">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
-                                    sx={{minWidth: "400px", 
-                                        minHeight: "380px",
-                                        backgroundColor: "transparent",
+                                    sx={{minWidth: "410px", 
+                                        minHeight: "auto",
+                                        backgroundColor: "#003049",
                                         borderRadius: 7,
-                                        boxShadow: 1
+                                        boxShadow: 4
                                 }}>
                                         {/* ACTIVITY CARDS*/}
-                                        <Link to="/submissiondetail">
-                                        <CardContent key={activity.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{activity.title}</Typography>
-                                            <Typography variant="h6">{activity.description}</Typography>
+                                        {/* <Link to="/submissiondetail"> */}
+                                        <div className="displayedactivitiy">
+                                        <CardContent key={activity.id} onClick={setOneActivity} >
+                                            <Typography variant="h3" variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{activity.title}</Typography>
+                                            <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}}>{activity.description.slice(0, 133)}...</Typography>
                                         </CardContent>
-                                        </Link>
+                                        </div>
+                                        {/* </Link> */}
                                     </Card>
                                 </Grid>
                             </Grid>
