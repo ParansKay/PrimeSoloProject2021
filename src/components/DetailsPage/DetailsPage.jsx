@@ -19,6 +19,7 @@ import Paper from '@mui/material/Paper';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarIcon from '@mui/icons-material/Star';
 import { formControlLabelClasses, IconButton } from '@mui/material';
+import { flexbox } from '@mui/system';
 
 function DetailsPage(){
   
@@ -132,7 +133,7 @@ function DetailsPage(){
                   <Card className="card" variant="outlined" 
                   sx={{minWidth: "400px", 
                       minHeight: "380px",
-                      backgroundColor: "transparent",
+                      backgroundColor: "#003049",
                       borderRadius: 7,
                       boxShadow: 1
               }}>
@@ -157,21 +158,30 @@ function DetailsPage(){
                         }
                       </div>
                         {/* ACTIVITY NAME */}
-                        <Typography variant="h4">{oneActivityReducer.name}</Typography>
+                        <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{oneActivityReducer.name}</Typography>
                         {/* NUMBER OF ACTORS */}
-                        <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>
+                        <Typography variant="h7" style={{'color':'#eae2b7'}}>For {oneActivityReducer.actors} actors</Typography>
                         </CardContent>
                         {/* ACTIVITY DESCRIPTION */}
                         <CardContent>
-                          <Typography variant="h6">{oneActivityReducer.description}</Typography>
-                          {/* MOVIE GENRE */}
+                            <>
+                            <style>
+                            {`#p-wrap {
+                            white-space: pre-line;
+                            }`}
+                            </style>
+                          <Typography variant="h4" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'20px'}}>{oneActivityReducer.description}</Typography>
+                          </>
+                          {/* ACTIVITY TAGS */}
                           <div>
-                          <h4>Tags:</h4>
+                          <Typography style={{'color':'#eae2b7', 'font-weight':'450', 'font-size':'17px', 'padding-top':'30px'}}>TAGS:</Typography>
                               {tag.map(tag => {
                                   return (
-                                          <div className="detailstag">
-                                              <h5>{tag.name}</h5>
-                                              </div>
+                                            <div className="detailstag">
+                                              {/* <Card style={{'background-color':'#d62828', 'min-height': '20px', 'max-width': 'auto', 'border-radius':9}}> */}
+                                              <flexBox style={{'color':'#eae2b7', 'font-weight':'400', 'font-size':'15px', 'background-color':'#d62828', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>{tag.name}</flexBox>
+                                              {/* </Card> */}
+                                            </div>
                                   );
                               })}
                          </div>
