@@ -177,7 +177,7 @@ function DetailsPage(){
                           <Typography style={{'color':'#eae2b7', 'font-weight':'450', 'font-size':'17px', 'padding-top':'30px'}}>TAGS:</Typography>
                               {tag.map(tag => {
                                   return (
-                                            <div className="detailstag">
+                                            <div className="detailsTag">
                                               {/* <Card style={{'background-color':'#d62828', 'min-height': '20px', 'max-width': 'auto', 'border-radius':9}}> */}
                                               <flexBox style={{'color':'#eae2b7', 'font-weight':'400', 'font-size':'15px', 'background-color':'#d62828', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>{tag.name}</flexBox>
                                               {/* </Card> */}
