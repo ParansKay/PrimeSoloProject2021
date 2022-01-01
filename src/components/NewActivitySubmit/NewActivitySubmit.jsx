@@ -36,11 +36,6 @@ function NewActivitySubmit(){
 
     const[activityStat, setActivityStat] = useState();
 
-    // FIXED NAV BAR
-    const [value, setValue] = React.useState(0);
-    //END FIXED NAV BAR 
-
-    
 
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
@@ -203,24 +198,6 @@ function NewActivitySubmit(){
                 </Grid>      
             </Grid>
             <div>
-            <div className="bottomNavBar">
-                <Box sx={{ width: 500 }}>
-                    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                        <BottomNavigation
-                            showlabels
-                            value={value}
-                            onChange={(event, newValue) => {
-                            setValue(newValue);
-                            }}
-                        >
-                            {/* Link HOME ICON to MovieList page */}
-                            <Link to="/">
-                            <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                            </Link>
-                        </BottomNavigation>
-                    </Paper>
-                </Box>
-                </div>
             </div>
         </div>
     </div>
