@@ -148,12 +148,12 @@ function DetailsPage(){
                             // onClick will run the checkLikes button (to determine how to render the icon + POST / DELETE route)
                           <IconButton  right="40%" 
                             onClick={toggleLike}>
-                            <StarIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "17px", left: "340px"}}/>
+                            <StarIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", top: "17px", left: "340px"}}/>
                           </IconButton>: 
                           // otherwise, the icon will be empty. onClick will still run the checkLikes function.
                           <IconButton  right="40%" 
                             onClick={toggleLike}>
-                            <StarOutlineIcon fontSize="large" style={{ color: 'gray', position: "absolute", top: "17px", left: "340px"}}/>
+                            <StarOutlineIcon fontSize="large" style={{ 'color': '#fcbf49', position: "absolute", top: "17px", left: "340px"}}/>
                           </IconButton> 
                         }
                       </div>
@@ -179,7 +179,7 @@ function DetailsPage(){
                                   return (
                                             <div className="detailsTag">
                                               {/* <Card style={{'background-color':'#d62828', 'min-height': '20px', 'max-width': 'auto', 'border-radius':9}}> */}
-                                              <flexBox style={{'color':'#eae2b7', 'font-weight':'400', 'font-size':'15px', 'background-color':'#d62828', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>{tag.name}</flexBox>
+                                              <flexBox style={{'color':'##061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#f77f00', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>{tag.name}</flexBox>
                                               {/* </Card> */}
                                             </div>
                                   );
