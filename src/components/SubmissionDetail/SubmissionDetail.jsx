@@ -113,20 +113,20 @@ function SubmissionDetailPage(){
                           <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px', 'padding-top':'18px'}}>{oneActivityReducer.name}</Typography>
                             {/* BUTTONS */}
                             <div>
-                                <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "285px"}}
+                                <IconButton
                                     onClick={openEditPage}>
-                                    <EditIcon fontSize="large"/>
-                                </Button>
+                                    <EditIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", left: "340px"}}/>
+                                </IconButton>
                                 {open?
-                                    <Button  right="40%"
+                                    <IconButton  right="40%"
                                     onClick={handleClickOpen}>
-                                    <CheckCircleIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}/>
-                                    </Button>:
+                                    <CheckCircleIcon fontSize="large"  style={{ 'color': '#f77f00', position: "absolute", bottom: "34px", left: "325px"}}/>
+                                    </IconButton>:
 
-                                    <Button  right="40%"
+                                    <IconButton  right="40%"
                                     onClick={handleClickOpen}>
-                                    <CheckCircleOutlineIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}/>
-                                    </Button>   
+                                    <CheckCircleOutlineIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", bottom: "34px", left: "325px"}}/>
+                                    </IconButton>   
                                 }
 
                             
