@@ -158,9 +158,9 @@ function DetailsPage(){
                         }
                       </div>
                         {/* ACTIVITY NAME */}
-                        <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{oneActivityReducer.name}</Typography>
+                        <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px'}}>{oneActivityReducer.name}</Typography>
                         {/* NUMBER OF ACTORS */}
-                        <Typography variant="h7" style={{'color':'#eae2b7'}}>For {oneActivityReducer.actors} actors</Typography>
+                        <flexBox variant="h7" style={{'color':'#061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#fcbf49', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>For {oneActivityReducer.actors} actor(s)</flexBox>
                         </CardContent>
                         {/* ACTIVITY DESCRIPTION */}
                         <CardContent>
