@@ -19,6 +19,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import StarIcon from '@mui/icons-material/Star';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -37,7 +38,8 @@ return (
 <div>
 <div>
     <Box>
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, width: 'auto'}} elevation={6}>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, width: 'auto'}} elevation={6}> 
+            {/* Previously, the width was 415px */}
             <BottomNavigation
                 showlabels
                 style={{'background-color': '#eae2b7'}}
@@ -77,6 +79,10 @@ return (
                 {/* <Link className="navLink" to="/user">
                 Home
                 </Link> */}
+
+                <Link to="/newsubmit">
+                <BottomNavigationAction label="Home" size="large" icon={<AddCircleIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
+                </Link>
 
                 <Link to="/favorites">
                 <BottomNavigationAction label="Home" size="large" icon={<StarIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
