@@ -110,22 +110,24 @@ function SubmissionDetailPage(){
                       {/* ACTIVITY TITLE */}
                       <CardContent key={oneActivityReducer.id}>
                           {/* ACTIVITY NAME */}
-                          <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px', 'padding-top':'18px'}}>{oneActivityReducer.name}</Typography>
+                          <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px', 'padding-top':'20px'}}>{oneActivityReducer.name}</Typography>
+                          {/* ACTOR NUMBER */}
+                          <flexBox variant="h7" style={{'color':'#061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#fcbf49', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto','padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>For {oneActivityReducer.actors} actor(s)</flexBox>
                             {/* BUTTONS */}
                             <div>
                                 <IconButton
                                     onClick={openEditPage}>
-                                    <EditIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", left: "340px"}}/>
+                                    <EditIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", bottom:'10px',left: "340px"}}/>
                                 </IconButton>
                                 {open?
                                     <IconButton  right="40%"
                                     onClick={handleClickOpen}>
-                                    <CheckCircleIcon fontSize="large"  style={{ 'color': '#f77f00', position: "absolute", bottom: "34px", left: "325px"}}/>
+                                    <CheckCircleIcon fontSize="large"  style={{ 'color': '#f77f00', position: "absolute", bottom: "53px", left: "325px"}}/>
                                     </IconButton>:
 
                                     <IconButton  right="40%"
                                     onClick={handleClickOpen}>
-                                    <CheckCircleOutlineIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", bottom: "34px", left: "325px"}}/>
+                                    <CheckCircleOutlineIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", bottom: "53px", left: "325px"}}/>
                                     </IconButton>   
                                 }
 
@@ -151,10 +153,9 @@ function SubmissionDetailPage(){
                                     </Button>
                                     </DialogActions>
                                 </Dialog>
-                            </div>
-                          {/* NUMBER OF ACTORS */}
-                          <flexBox variant="h7" style={{'color':'#061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#fcbf49', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>For {oneActivityReducer.actors} actor(s)</flexBox>
-                      </CardContent>
+                                </div>
+                              {/* NUMBER OF ACTORS */}
+                              </CardContent>
                       {/* ACTIVITY DESCRIPTION */}
                       <CardContent>
                       <Typography variant="h4" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'20px'}}>{oneActivityReducer.description}</Typography>
