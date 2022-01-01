@@ -119,7 +119,7 @@ function App() {
             exact
             path="/editpageexisting"
             >
-            <EditPage/>
+            <EditPageExisting/>
           </ProtectedRoute>
 
 
