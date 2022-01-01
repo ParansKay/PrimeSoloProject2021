@@ -141,7 +141,7 @@ function DetailsPage(){
               {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                   {/* the number inside {} indicates how wide the card can be. Weird.*/}
                   <Card className="card" variant="outlined" 
-                  sx={{minWidth: "400px", 
+                  sx={{minWidth: "411px", 
                       minHeight: "380px",
                       backgroundColor: "#003049",
                       borderRadius: 7,

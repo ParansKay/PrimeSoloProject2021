@@ -16,12 +16,16 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Paper from '@mui/material/Paper';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import EditIcon from '@mui/icons-material/Edit';
+import { formControlLabelClasses, IconButton } from '@mui/material';
+import { flexbox } from '@mui/system';
 
 
 function SubmissionDetailPage(){
@@ -96,27 +100,36 @@ function SubmissionDetailPage(){
               {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                   {/* the number inside {} indicates how wide the card can be. Weird.*/}
                   <Card className="card" variant="outlined" 
-                  sx={{minWidth: "400px", 
-                      minHeight: "380px",
-                      backgroundColor: "transparent",
-                      borderRadius: 7,
-                      boxShadow: 1
+                    sx={{minWidth: "411px", 
+                    minHeight: "380px",
+                    backgroundColor: "#003049",
+                    borderRadius: 7,
+                    boxShadow: 1
               }}>
                       {/* ACTIVITY DETAIL CARD*/}
                       {/* ACTIVITY TITLE */}
                       <CardContent key={oneActivityReducer.id}>
                           {/* ACTIVITY NAME */}
-                          <Typography variant="h5">{oneActivityReducer.name}</Typography>
+                          <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px', 'padding-top':'18px'}}>{oneActivityReducer.name}</Typography>
                             {/* BUTTONS */}
                             <div>
                                 <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "285px"}}
                                     onClick={openEditPage}>
                                     <EditIcon fontSize="large"/>
                                 </Button>
-                                <Button  right="40%" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}
+                                {open?
+                                    <Button  right="40%"
                                     onClick={handleClickOpen}>
-                                    <CheckBoxIcon fontSize="large"/>
-                                </Button>
+                                    <CheckCircleIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}/>
+                                    </Button>:
+
+                                    <Button  right="40%"
+                                    onClick={handleClickOpen}>
+                                    <CheckCircleOutlineIcon fontSize="large" style={{ color: '#937c96', position: "absolute", top: "180px", left: "240px"}}/>
+                                    </Button>   
+                                }
+
+                            
                                 <Dialog
                                     open={open}
                                     onClose={handleClose}
@@ -127,31 +140,31 @@ function SubmissionDetailPage(){
                                     {"Would you like to approve this submission?"}
                                     </DialogTitle>
                                     <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
+                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto'}}>
                                        By clicking approve, you are adding this submission for all users to see. If you'd like to continue editing, click "not yet".
                                     </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                    <Button onClick={handleClose}>Not yet</Button>
-                                    <Button onClick={approvePost} autoFocus>
+                                    <Button variant='contained' style={{'background-color':'#d62828', 'font-family':'roboto'}} onClick={handleClose}>Not yet</Button>
+                                    <Button variant='contained' style={{'background-color':'#f77f00', 'font-family':'roboto'}} onClick={approvePost} autoFocus>
                                         Approve!
                                     </Button>
                                     </DialogActions>
                                 </Dialog>
                             </div>
                           {/* NUMBER OF ACTORS */}
-                          <Typography variant="h7">For {oneActivityReducer.actors} actors</Typography>
+                          <flexBox variant="h7" style={{'color':'#061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#fcbf49', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>For {oneActivityReducer.actors} actor(s)</flexBox>
                       </CardContent>
                       {/* ACTIVITY DESCRIPTION */}
                       <CardContent>
-                          <Typography variant="h6">{oneActivityReducer.description}</Typography>
+                      <Typography variant="h4" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'20px'}}>{oneActivityReducer.description}</Typography>
                           {/* MOVIE GENRE */}
                           <div>
-                          <h4>Tags:</h4>
+                          <Typography style={{'color':'#eae2b7', 'font-weight':'450', 'font-size':'17px', 'padding-top':'30px'}}>TAGS:</Typography>
                               {tag.map(tag => {
                                   return (
                                           <div className="detailstag">
-                                              <h5>{tag.name}</h5>
+                                             <flexBox style={{'color':'##061e2a', 'font-weight':'500', 'font-size':'15px', 'background-color':'#f77f00', 'border-radius':9, 'min-height': '20px', 'min-width': 'auto', 'padding-left': '10px', 'padding-right': '10px', 'padding-top':'3px', 'padding-bottom':'3px'}}>{tag.name}</flexBox>
                                               </div>
                                   );
                               })}
