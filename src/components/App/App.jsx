@@ -27,7 +27,9 @@ import NewActivitySubmit from '../NewActivitySubmit/NewActivitySubmit';
 import SubmissionsControl from '../SubmissionsControl/SubmissionsControl';
 import SubmissionDetail from '../SubmissionDetail/SubmissionDetail';
 import EditPage from '../EditPage/EditPage';
+import EditPageExisting from '../EditPageExisting/EditPageExisting';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
+
 
 
 
@@ -112,6 +114,14 @@ function App() {
             >
             <EditPage/>
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/editpageexisting"
+            >
+            <EditPage/>
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage

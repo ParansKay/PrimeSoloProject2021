@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useNavigate } from 'react-router-dom';
 //MATERIAL UI IMPORT
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -20,6 +20,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarIcon from '@mui/icons-material/Star';
 import { formControlLabelClasses, IconButton } from '@mui/material';
 import { flexbox } from '@mui/system';
+import EditIcon from '@mui/icons-material/Edit';
 
 function DetailsPage(){
   
@@ -31,6 +32,7 @@ function DetailsPage(){
     const user = useSelector((store) => store.user);
     const singleFaveReducer = useSelector((store) => store.singleFaveReducer)
 
+    const history = useHistory();
     
      // On page load, connect to the saga to fetch tags, specifically,
     // look for the id of the activity we clicked on the results/activity page (which is stored in the oneActivityReducer.id)
@@ -114,6 +116,14 @@ function DetailsPage(){
         }}); 
     };
 
+    const openEditEPage = () =>{ //the E is for existing
+        console.log( 'editing now' );
+        dispatch({
+            type: 'FETCH_ACTIVITY',
+            payload: oneActivityReducer})
+            history.push("/editpageexisting");
+    }
+
   return(
       <div>
           {/* <h1>DetailsPage</h1> */}
@@ -148,14 +158,22 @@ function DetailsPage(){
                             // onClick will run the checkLikes button (to determine how to render the icon + POST / DELETE route)
                           <IconButton  right="40%" 
                             onClick={toggleLike}>
-                            <StarIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", top: "17px", left: "340px"}}/>
+                            <StarIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", top: "24px", left: "340px"}}/>
                           </IconButton>: 
                           // otherwise, the icon will be empty. onClick will still run the checkLikes function.
                           <IconButton  right="40%" 
                             onClick={toggleLike}>
-                            <StarOutlineIcon fontSize="large" style={{ 'color': '#fcbf49', position: "absolute", top: "17px", left: "340px"}}/>
+                            <StarOutlineIcon fontSize="large" style={{ 'color': '#fcbf49', position: "absolute", top: "24px", left: "340px"}}/>
                           </IconButton> 
                         }
+
+                        {user.access_level === 10 &&
+                            // If there's no user, show login/registration links
+                            <Button size="large" onClick={openEditEPage} right="40%">
+                                <EditIcon fontSize="large" style={{ 'color': '#f77f00', position: "absolute", top: "70", left: "320px"}}/>
+                            </Button>
+                        }
+
                       </div>
                         {/* ACTIVITY NAME */}
                         <Typography variant="h3" style={{'color':'#eae2b7', 'font-family':'Poiret One', 'font-weight':'300', 'font-size':'40px', 'padding-bottom':'15px'}}>{oneActivityReducer.name}</Typography>
