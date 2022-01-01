@@ -37,7 +37,7 @@ return (
 <div>
 <div>
     <Box>
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, width: '410px'}} elevation={6}>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, width: 'auto'}} elevation={6}>
             <BottomNavigation
                 showlabels
                 style={{'background-color': '#eae2b7'}}
