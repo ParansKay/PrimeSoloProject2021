@@ -241,18 +241,18 @@ function NewActivitySubmit(){
                                             <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={13}>Stage Presence</MenuItem>
                                             <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={14}>Vulnerability</MenuItem>
                                     </Select>
-                                    <FormHelperText>Select a tag that best describes this activity!</FormHelperText>
+                                    {/* <FormHelperText>Select a tag that best describes this activity!</FormHelperText> */}
                                     {/* this places a "helper text" for the user under the select box */}
                             </StyledForm>
                         </CardContent>
                          {/*BUTTONS  */}
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
-                            <div className="NextPageButton">
-                                <Link to="/">
-                                    <Button size="large" variant="outlined" color="warning" fontSize="large">Cancel</Button>
+                            <div className="newSubmitPageBtns">
+                                <Link to="/" style={{'text-decoration':'none'}}>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
                                 </Link>
-                                <Link to="/">
+                                <Link to="/" style={{'text-decoration':'none'}}>
                                     <Button className="next" variant="contained" color="warning" size="large" onClick={addNewActivity}>Save</Button>
                                 </Link>
                             </div>
