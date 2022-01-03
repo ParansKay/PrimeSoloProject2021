@@ -184,7 +184,7 @@ function NewActivitySubmit(){
                                         label="actorsSelet"
                                         onChange={( event )=>addActors( event )}
                                     >
-                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'300'}}value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}}value="">
                                             <em>How many actors?</em>
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
@@ -222,24 +222,24 @@ function NewActivitySubmit(){
                                         label="tagSelect"
                                         onChange={( event )=>addTag( event )}
                                     >
-                                        <MenuItem value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}} value="">
                                             <em>pick a tag</em>
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem value={1}>Breath Support</MenuItem>
-                                            <MenuItem value={2}>Character Development</MenuItem>
-                                            <MenuItem value={3}>Connection / Relationships</MenuItem>
-                                            <MenuItem value={4}>Energy</MenuItem>
-                                            <MenuItem value={5}>Enunciation</MenuItem>
-                                            <MenuItem value={6}>Escalation / Urgency</MenuItem>
-                                            <MenuItem value={7}>Focus</MenuItem>
-                                            <MenuItem value={8}>Improvisation</MenuItem>
-                                            <MenuItem value={9}>Listening</MenuItem>
-                                            <MenuItem value={10}>Memorization</MenuItem>
-                                            <MenuItem value={11}>Physical Stamina</MenuItem>
-                                            <MenuItem value={12}>Projection</MenuItem>
-                                            <MenuItem value={13}>Stage Presence</MenuItem>
-                                            <MenuItem value={14}>Vulnerability</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={1}>Breath Support</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={2}>Character Development</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={3}>Connection / Relationships</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={4}>Energy</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={5}>Enunciation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={6}>Escalation / Urgency</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={7}>Focus</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={8}>Improvisation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={9}>Listening</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={10}>Memorization</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={11}>Physical Stamina</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={12}>Projection</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={13}>Stage Presence</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={14}>Vulnerability</MenuItem>
                                     </Select>
                                     <FormHelperText>Select a tag that best describes this activity!</FormHelperText>
                                     {/* this places a "helper text" for the user under the select box */}
