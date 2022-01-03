@@ -173,7 +173,7 @@ function UserPage() {
                         onChange={(event) => setTagId(event.target.value)}
                     >
 
-                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'300'}} value="">
+                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}} value="">
                             <em>pick from the list below!</em>
                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                         </MenuItem>
