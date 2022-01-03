@@ -145,7 +145,7 @@ function NewActivitySubmit(){
         <div className="newmoviepagemargintop">
              <div className="activityListMap">
                 <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
-                <br/>
+                <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>LET'S SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
             </div>
             <div>
                 <Grid
@@ -163,7 +163,7 @@ function NewActivitySubmit(){
                             <StyledTextField
                                 id="outlined-multiline-static"
                                 variant="outlined"
-                                label="activity title"
+                                label="What is this exercise called?"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
@@ -174,7 +174,7 @@ function NewActivitySubmit(){
                         {/* ACTORS INPUT */}
                         <CardContent>
                             <StyledForm className="formClass"  style={{'minWidth':'300px'}}>
-                                <InputLabel id="actors-select-label">How many actors?</InputLabel>
+                                <InputLabel id="actors-select-label">How many actors does it require?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
@@ -199,7 +199,7 @@ function NewActivitySubmit(){
                         <CardContent>
                         <StyledTextField
                                 id="outlined-multiline-static"
-                                label="activity decription"
+                                label="Tell us more about this exercise. (describe every step in detail)"
                                 variant="outlined"
                                 multiline
                                 style={{'minWidth':'300px'}}
@@ -212,7 +212,7 @@ function NewActivitySubmit(){
                         {/* TAGS DROP DOWN */}
                        <CardContent>
                             <StyledForm className="formClass" style={{'minWidth':'300px'}}>
-                                <InputLabel id="genre-select-label">pick a tag</InputLabel>
+                                <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
