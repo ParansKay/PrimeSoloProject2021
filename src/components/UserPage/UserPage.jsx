@@ -28,7 +28,7 @@ import styled from "styled-components";
 
 const StyledForm = styled(FormControl)({
   '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
-    color: '#d9d9d9',
+    color: '#f77f00',
   },
   '& .MuiFormHelperText-root':{
     color: '#d9d9d9',
@@ -49,7 +49,7 @@ const StyledForm = styled(FormControl)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: 'white',
+    color: '#d9d9d9',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
     color: '#d9d9d9',
@@ -173,7 +173,7 @@ function UserPage() {
                         onChange={(event) => setTagId(event.target.value)}
                     >
 
-                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value="">
+                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'300'}} value="">
                             <em>pick from the list below!</em>
                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                         </MenuItem>

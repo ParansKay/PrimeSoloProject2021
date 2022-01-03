@@ -23,6 +23,67 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import { makeStyles } from '@material-ui/styles';
+import styled from "styled-components";
+
+const StyledTextField = styled(TextField)({
+  '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+    color: '#f77f00',
+  },
+  '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+    '& fieldset': {
+      borderColor: '#f77f00',
+    },
+    '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+      borderColor: '#f77f00',
+      color: 'white',
+    },
+    '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+      borderColor: '#f77f00',
+    },
+  },
+ ' & .MuiInputBase-root': { //this changes the color of the input text
+    color: '#d9d9d9',
+  },
+  '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+    color: '#d9d9d9',
+  },
+})
+;
+
+const StyledForm = styled(FormControl)({
+    '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+      color: '#f77f00',
+    },
+    '& .MuiFormHelperText-root':{
+      color: '#d9d9d9',
+    },
+    '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+      borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+      '& fieldset': {
+        borderColor: '#f77f00',
+      },
+      '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+        borderColor: '#f77f00',
+        color: 'white',
+      },
+      '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+        borderColor: '#f77f00',
+      },
+    },
+   ' & .MuiInputBase-root': { //this changes the color of the input text
+      color: '#d9d9d9',
+    },
+    '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+      color: '#d9d9d9',
+    },
+  })
+  ;
 
 function NewActivitySubmit(){
     // const[name, setName] = useState( null );
@@ -82,6 +143,10 @@ function NewActivitySubmit(){
 
     return(
         <div className="newmoviepagemargintop">
+             <div className="activityListMap">
+                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
+                <br/>
+            </div>
             <div>
                 <Grid
                     container
@@ -92,27 +157,23 @@ function NewActivitySubmit(){
 
                 <Grid item xs={12}>
                 {/* the number inside {} indicates how wide the card can be. Weird.*/}
-                    <Card className="card" variant="outlined">
-                        {/* HEADER */}
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                               Add a new activity here
-                            </Typography>
-                        </CardContent>
+                    <Card className="card" variant="outlined" style={{'background-color':'#061e2a', 'color':'#eae2b7'}}>
                         {/* TITLE INPUT */}
                         <CardContent>
-                            <TextField
+                            <StyledTextField
                                 id="outlined-multiline-static"
+                                variant="outlined"
                                 label="activity title"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
+                                style={{'minWidth':'300px'}}
                                 onChange={ ( event )=>addTitle( event )}
                                 />
                         </CardContent> 
                         {/* ACTORS INPUT */}
                         <CardContent>
-                            <FormControl className="formClass" sx={{ minWidth: 200 }}>
+                            <StyledForm className="formClass"  style={{'minWidth':'300px'}}>
                                 <InputLabel id="actors-select-label">How many actors?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
@@ -123,23 +184,25 @@ function NewActivitySubmit(){
                                         label="actorsSelet"
                                         onChange={( event )=>addActors( event )}
                                     >
-                                        <MenuItem value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'300'}}value="">
                                             <em>How many actors?</em>
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem value={'1'}>Single</MenuItem>
-                                            <MenuItem value={'2'}>2 Actors</MenuItem>
-                                            <MenuItem value={'5+'}>5+</MenuItem>
-                                            <MenuItem value={'10+'}>10+</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'1'}>Single</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'2'}>2 Actors</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'5+'}>5+</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'10+'}>10+</MenuItem>
                                     </Select>
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>  
                         {/* DESCRIPTION INPUT */}
                         <CardContent>
-                        <TextField
+                        <StyledTextField
                                 id="outlined-multiline-static"
                                 label="activity decription"
+                                variant="outlined"
                                 multiline
+                                style={{'minWidth':'300px'}}
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.description}
@@ -148,7 +211,7 @@ function NewActivitySubmit(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                            <FormControl className="formClass" sx={{ m: 1, minWidth: 120 }}>
+                            <StyledForm className="formClass" style={{'minWidth':'300px'}}>
                                 <InputLabel id="genre-select-label">pick a tag</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
@@ -180,7 +243,7 @@ function NewActivitySubmit(){
                                     </Select>
                                     <FormHelperText>Select a tag that best describes this activity!</FormHelperText>
                                     {/* this places a "helper text" for the user under the select box */}
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>
                          {/*BUTTONS  */}
                         <CardActions sx={{ justifyContent: "right" }}> 
