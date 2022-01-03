@@ -167,13 +167,13 @@ function NewActivitySubmit(){
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
-                                style={{'minWidth':'300px'}}
+                                style={{'minWidth':'380px'}}
                                 onChange={ ( event )=>addTitle( event )}
                                 />
                         </CardContent> 
                         {/* ACTORS INPUT */}
                         <CardContent>
-                            <StyledForm className="formClass"  style={{'minWidth':'300px'}}>
+                            <StyledForm className="formClass"  style={{'minWidth':'380px'}}>
                                 <InputLabel id="actors-select-label">How many actors does it require?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
@@ -202,7 +202,7 @@ function NewActivitySubmit(){
                                 label="Tell us more about this exercise. (describe every step in detail)"
                                 variant="outlined"
                                 multiline
-                                style={{'minWidth':'300px'}}
+                                style={{'minWidth':'380px'}}
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.description}
@@ -211,7 +211,7 @@ function NewActivitySubmit(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                            <StyledForm className="formClass" style={{'minWidth':'300px'}}>
+                            <StyledForm className="formClass" style={{'minWidth':'380px'}}>
                                 <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
