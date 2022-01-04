@@ -225,7 +225,7 @@ function EditPage(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                       <StyledForm className="formClass" style={{'minWidth':'380px', 'background-color':'red'}}>
+                       <StyledForm className="formClass" style={{'minWidth':'380px'}}>
                        <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
