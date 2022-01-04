@@ -18,9 +18,29 @@ router.get('/', (req, res) => {
     })
 });
 
-/* 
- * PUT route template
+
+/**
+ * DELETE ROUTE
  */
+ router.delete('/', (req, res) => {
+  // DELETE route code here
+  console.log( 'in DELETE ROUTE with:', req.body.activity_id);
+  const queryTextDelete = `DELETE FROM "activity"
+    WHERE "id"=$1;`
+    pool.query(queryTextDelete, [req.body.activity_id])
+    .then( result => {
+      console.log('deleted activity Id');
+      // res.sendStatus(200)
+    })
+    .catch(err => {
+      console.log('ERROR: deleting activity', err);
+      res.sendStatus(500)
+    })
+});
+
+
+
+
 // CLEARANCE PUT ROUTE 
 router.put('/', (req, res) => {
   // GET route code here

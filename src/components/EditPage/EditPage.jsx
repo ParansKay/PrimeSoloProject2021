@@ -154,6 +154,19 @@ function EditPage(){
             }, 200);
     };
 
+    const deleteActivity = (event) => {
+      console.log('in deleteactivity');
+      dispatch({
+        type: 'DELETE_ACTIVITY',
+        payload:{
+          activity_id: oneActivityReducer.id
+        }
+      })
+      const timer = setTimeout(()=>{
+        history.push("/allactivity");
+        }, 200);
+    }
+
     return(
         <div className="editpagemargintop">
              <div className="activityListMap">
@@ -264,6 +277,10 @@ function EditPage(){
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="newSubmitPageBtns">
+                                <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'color': 'white', 'border-color':'#d62828',right: "100px"}}>
+                                  Delete
+                                {/* <DeleteIcon fontSize="large" style={{ 'color': 'white', position: "absolute", right: "150px"}}/> */}
+                                </Button>
                                 <Link to="/submissiondetail" style={{'text-decoration':'none'}}>
                                     <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
                                 </Link>

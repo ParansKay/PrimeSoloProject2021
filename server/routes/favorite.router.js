@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
 router.delete('/', (req, res) => {
     console.log( 'in DELETE ROUTE with:', req.body);
     console.log( 'req.body.user_id:', req.body.user_id, 'req.body.activity_id:', req.body.activity_id)
-    // POST route code here
+    // DELETE route code here
     const queryTextFave = `DELETE FROM "favorite"
     WHERE "user_id"=$1 and "activity_id"=$2;`
     pool.query(queryTextFave, [req.body.user_id, req.body.activity_id])

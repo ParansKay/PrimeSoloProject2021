@@ -20,11 +20,13 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
+import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/styles';
 import styled from "styled-components";
+import { IconButton } from '@mui/material';
 
 const StyledTextField = styled(TextField)({
   '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
@@ -155,6 +157,19 @@ function EditPage(){
             }, 200);
     };
 
+    const deleteActivity = (event) => {
+      console.log('in deleteactivity');
+      dispatch({
+        type: 'DELETE_ACTIVITY',
+        payload:{
+          activity_id: oneActivityReducer.id
+        }
+      })
+      const timer = setTimeout(()=>{
+        history.push("/allactivity");
+        }, 200);
+    }
+
     return(
         <div className="editpagemargintop">
              <div className="activityListMap">
@@ -264,6 +279,10 @@ function EditPage(){
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="NextPageButton">
+                            <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'color': 'white', 'border-color':'#d62828',right: "100px"}}>
+                              Delete
+                            {/* <DeleteIcon fontSize="large" style={{ 'color': 'white', position: "absolute", right: "150px"}}/> */}
+                            </Button>
                                 <Link to="/details" style={{'text-decoration':'none'}}>
                                     <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
                                 </Link>

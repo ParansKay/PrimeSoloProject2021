@@ -7,6 +7,7 @@ function* activitySaga() {
     yield takeLatest ('FETCH_SUBMISSIONS', fetchSubmissions);
     yield takeLatest ('EDIT_ACTIVITY', editActivity);
     yield takeLatest ('ADD_CLEARANCE', addClearanceLevel);
+    yield takeLatest ('DELETE_ACTIVITY', deleteActivity);
   }
 
   function* fetchActivity() {
@@ -34,6 +35,27 @@ function* activitySaga() {
       console.log('User get request failed', error);
     }
   }
+
+  function* deleteActivity(action){
+    // deleting existing activity/user information from Favorites table in our database
+    try {
+    console.log('action.payload is------>', action.payload);
+     const activitytodelete = yield axios({
+                            method: 'DELETE', //method is DELETE
+                            url: '/api/activity/', //deleting this information from Favorites API (Favorites table)
+                            data: action.payload}); //payload from dispatch (meaning activity id and user id)
+     console.log('removing activity:', activitytodelete.data);
+     yield put({ 
+         //once that is done, update FETCH_FAVORITES to append the most up-to-date info to the DOM
+         type: 'SET_ACTIVITY',
+         //we NEED a payload here, otherwise the server gives us a 500 error and
+         // updates on likes become asynchronous
+     }); 
+ } catch {
+     console.log('error removing activity');
+ } 
+ }
+
 
   function* addClearanceLevel(action){
     console.log('in ADD_CLEARANCE----!');
