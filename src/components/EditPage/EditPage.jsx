@@ -23,6 +23,67 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import { makeStyles } from '@material-ui/styles';
+import styled from "styled-components";
+
+const StyledTextField = styled(TextField)({
+  '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+    color: '#f77f00',
+  },
+  '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+    '& fieldset': {
+      borderColor: '#f77f00',
+    },
+    '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+      borderColor: '#f77f00',
+      color: 'white',
+    },
+    '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+      borderColor: '#f77f00',
+    },
+  },
+ ' & .MuiInputBase-root': { //this changes the color of the input text
+    color: '#FAEBD7',
+  },
+  '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+    color: '#FAEBD7',
+  },
+})
+;
+
+const StyledForm = styled(FormControl)({
+    '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+      color: '#f77f00',
+    },
+    '& .MuiFormHelperText-root':{
+      color: '#d9d9d9',
+    },
+    '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+      borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+      '& fieldset': {
+        borderColor: '#f77f00',
+      },
+      '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+        borderColor: '#f77f00',
+        color: 'white',
+      },
+      '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+        borderColor: '#f77f00',
+      },
+    },
+   ' & .MuiInputBase-root': { //this changes the color of the input text
+      color: '#FAEBD7',
+    },
+    '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+      color: '#FAEBD7',
+    },
+  })
+  ;
 
 function EditPage(){
     // const[name, setName] = useState( null );
@@ -37,10 +98,6 @@ function EditPage(){
     const activity = useSelector((store) => store.activity);
 
     const[activityStat, setActivityStat] = useState();
-
-    // FIXED NAV BAR
-    const [value, setValue] = React.useState(0);
-    //END FIXED NAV BAR 
 
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
@@ -99,6 +156,10 @@ function EditPage(){
 
     return(
         <div className="editpagemargintop">
+             <div className="activityListMap">
+                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Editing Mode</Typography>
+                <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON ANY OF THE FIELDS TO START EDITING.</Typography>
+            </div>
             <div>
                 <Grid
                     container
@@ -109,28 +170,25 @@ function EditPage(){
 
                 <Grid item xs={12}>
                 {/* the number inside {} indicates how wide the card can be. Weird.*/}
-                    <Card className="card" variant="outlined">
-                        {/* HEADER */}
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                               Let's edit this activity
-                            </Typography>
-                        </CardContent>
+                    <Card className="card" variant="outlined" style={{'background-color':'#061e2a', 'color':'#eae2b7'}}>
+                
                         {/* TITLE INPUT */}
                         <CardContent>
-                            <TextField
+                            <StyledTextField
                                 id="outlined-multiline-static"
-                                label="activity title"
+                                label="What is this exercise called?"
+                                variant="outlined"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
+                                style={{'minWidth':'380px'}}
                                 defaultValue={editedActivity.title}
                                 onChange={ ( event )=>addTitle( event )}
                                 />
                         </CardContent> 
                         {/* ACTORS INPUT */}
                         <CardContent>
-                            <FormControl className="formClass" sx={{ minWidth: 200,  }}>
-                                <InputLabel id="actors-select-label">How many actors?</InputLabel>
+                            <StyledForm className="formClass"  style={{'minWidth':'380px'}}>
+                            <InputLabel id="actors-select-label">How many actors does it require?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
@@ -149,13 +207,15 @@ function EditPage(){
                                             <MenuItem value={'5+'}>5+</MenuItem>
                                             <MenuItem value={'10+'}>10+</MenuItem>
                                     </Select>
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>  
                         {/* DESCRIPTION INPUT */}
                         <CardContent>
-                        <TextField
+                        <StyledTextField
                                 id="outlined-multiline-static"
-                                label="activity decription"
+                                label="Tell us more about this exercise. (describe every step in detail)"
+                                variant="outlined"
+                                style={{'minWidth':'380px'}}
                                 multiline
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
@@ -165,8 +225,8 @@ function EditPage(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                            <FormControl className="formClass" sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="genre-select-label">pick a tag</InputLabel>
+                       <StyledForm className="formClass" style={{'minWidth':'380px'}}>
+                       <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
@@ -176,35 +236,35 @@ function EditPage(){
                                         label="tagSelect"
                                         onChange={( event )=>addTag( event )}
                                     >
-                                        <MenuItem value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}} value="">
                                             {/* <em>{editedActivity.tags}</em> */}
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem value={1}>Breath Support</MenuItem>
-                                            <MenuItem value={2}>Character Development</MenuItem>
-                                            <MenuItem value={3}>Connection / Relationships</MenuItem>
-                                            <MenuItem value={4}>Energy</MenuItem>
-                                            <MenuItem value={5}>Enunciation</MenuItem>
-                                            <MenuItem value={6}>Escalation / Urgency</MenuItem>
-                                            <MenuItem value={7}>Focus</MenuItem>
-                                            <MenuItem value={8}>Improvisation</MenuItem>
-                                            <MenuItem value={9}>Listening</MenuItem>
-                                            <MenuItem value={10}>Memorization</MenuItem>
-                                            <MenuItem value={11}>Physical Stamina</MenuItem>
-                                            <MenuItem value={12}>Projection</MenuItem>
-                                            <MenuItem value={13}>Stage Presence</MenuItem>
-                                            <MenuItem value={14}>Vulnerability</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={1}>Breath Support</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={2}>Character Development</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={3}>Connection / Relationships</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={4}>Energy</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={5}>Enunciation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={6}>Escalation / Urgency</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={7}>Focus</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={8}>Improvisation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={9}>Listening</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={10}>Memorization</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={11}>Physical Stamina</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={12}>Projection</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={13}>Stage Presence</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={14}>Vulnerability</MenuItem>
                                     </Select>
-                                    <FormHelperText>Select a tag that best describes this activity!</FormHelperText>
+                                    {/* <FormHelperText>Select a tag that best describes this activity!</FormHelperText> */}
                                     {/* this places a "helper text" for the user under the select box */}
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>
                          {/*BUTTONS  */}
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
-                            <div className="NextPageButton">
-                                <Link to="/">
-                                    <Button size="large" variant="outlined" color="warning" fontSize="large">Cancel</Button>
+                            <div className="newSubmitPageBtns">
+                                <Link to="/submissiondetail" style={{'text-decoration':'none'}}>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
                                 </Link>
                                     <Button className="next" variant="contained" color="warning" size="large" onClick={editThisActivity}>Save</Button>
                             </div>
@@ -213,24 +273,6 @@ function EditPage(){
                 </Grid>      
             </Grid>
             <div>
-            <div className="bottomNavBar">
-                <Box sx={{ width: 500 }}>
-                    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                        <BottomNavigation
-                            showlabels
-                            value={value}
-                            onChange={(event, newValue) => {
-                            setValue(newValue);
-                            }}
-                        >
-                            {/* Link HOME ICON to MovieList page */}
-                            <Link to="/">
-                            <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-                            </Link>
-                        </BottomNavigation>
-                    </Paper>
-                </Box>
-                </div>
             </div>
         </div>
     </div>

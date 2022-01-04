@@ -23,6 +23,67 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import { makeStyles } from '@material-ui/styles';
+import styled from "styled-components";
+
+const StyledTextField = styled(TextField)({
+  '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+    color: '#f77f00',
+  },
+  '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+    '& fieldset': {
+      borderColor: '#f77f00',
+    },
+    '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+      borderColor: '#f77f00',
+      color: 'white',
+    },
+    '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+      borderColor: '#f77f00',
+    },
+  },
+ ' & .MuiInputBase-root': { //this changes the color of the input text
+    color: '#FAEBD7',
+  },
+  '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+    color: '#FAEBD7',
+  },
+})
+;
+
+const StyledForm = styled(FormControl)({
+    '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
+      color: '#f77f00',
+    },
+    '& .MuiFormHelperText-root':{
+      color: '#d9d9d9',
+    },
+    '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
+      borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': { //this sets the default color value of the border (before it is clicked or affected by any input changes)
+      '& fieldset': {
+        borderColor: '#f77f00',
+      },
+      '&:hover fieldset': { //this changes the color of the border after the user has implemented changes
+        borderColor: '#f77f00',
+        color: 'white',
+      },
+      '&.Mui-focused fieldset': { //this sets the border color once the user has clicked on it or typing in it (in focus)
+        borderColor: '#f77f00',
+      },
+    },
+   ' & .MuiInputBase-root': { //this changes the color of the input text
+      color: '#FAEBD7',
+    },
+    '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
+      color: '#FAEBD7',
+    },
+  })
+  ;
 
 function EditPage(){
     // const[name, setName] = useState( null );
@@ -96,6 +157,10 @@ function EditPage(){
 
     return(
         <div className="editpagemargintop">
+             <div className="activityListMap">
+                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Editing Mode</Typography>
+                <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON ANY OF THE FIELDS TO START EDITING.</Typography>
+            </div>
             <div>
                 <Grid
                     container
@@ -106,13 +171,7 @@ function EditPage(){
 
                 <Grid item xs={12}>
                 {/* the number inside {} indicates how wide the card can be. Weird.*/}
-                    <Card className="card" variant="outlined">
-                        {/* HEADER */}
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                               Let's edit this activity
-                            </Typography>
-                        </CardContent>
+                <Card className="card" variant="outlined" style={{'background-color':'#061e2a', 'color':'#eae2b7'}}>
                         {/* TITLE INPUT */}
                         <CardContent>
                             <TextField

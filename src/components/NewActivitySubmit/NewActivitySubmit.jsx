@@ -46,10 +46,10 @@ const StyledTextField = styled(TextField)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: '#d9d9d9',
+    color: '#FAEBD7',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-    color: '#d9d9d9',
+    color: '#FAEBD7',
   },
 })
 ;
@@ -77,10 +77,10 @@ const StyledForm = styled(FormControl)({
       },
     },
    ' & .MuiInputBase-root': { //this changes the color of the input text
-      color: '#d9d9d9',
+      color: '#FAEBD7',
     },
     '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-      color: '#d9d9d9',
+      color: '#FAEBD7',
     },
   })
   ;
@@ -142,7 +142,7 @@ function NewActivitySubmit(){
     };
 
     return(
-        <div className="newmoviepagemargintop">
+        <div>
              <div className="activityListMap">
                 <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
                 <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>LET'S SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
