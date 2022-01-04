@@ -89,7 +89,7 @@ function ResultsPage() {
                                         <div>
                                             <CardContent key={search.id} onClick={setOneActivity}>
                                                 <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{search.title}</Typography>
-                                                <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}}>{search.description.slice(0, 133)}</Typography>
+                                                <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}}>{search.description.slice(0, 133)}...</Typography>
                                             </CardContent>
                                         </div>
                                     </Card>
