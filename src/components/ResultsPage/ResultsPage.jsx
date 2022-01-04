@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import './MovieList.css'
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import axios from 'axios';
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
@@ -26,6 +26,8 @@ function ResultsPage() {
   const tag = useSelector((store) => store.tag);
   const search = useSelector((store) => store.search);
   const oneActivityReducer = useSelector((store) => store.oneActivityReducer);
+
+  const history = useHistory();
   const dispatch = useDispatch();
 
     //for the fixed button on page
@@ -36,9 +38,10 @@ function ResultsPage() {
     }, []);
 
     return (
-        <main>
-            <div className="activityListMap">
-            <h1>Activity List</h1>
+        <main className="mainactivity">
+           <div className="activityListMap">
+            <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>Exercise List</Typography>
+            <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>CLICK ON AN EXERCISE TO VIEW MORE DETAILS</Typography>
             </div>
             <section className="mapping">
                 {search.map(search => { {/* mapping through the store */}
@@ -54,6 +57,9 @@ function ResultsPage() {
                             actors: search.actors
                             }
                         } )
+                        const timer = setTimeout(()=>{
+                            history.push("/details");
+                            }, 300);
                 }
                     return (
                         // appending movie information to the MovieList component
@@ -66,25 +72,26 @@ function ResultsPage() {
                                 // spacing={0} 
                                 alignItems="center"
                                 justify="center"
+                                style={{'padding-top':'10px'}}
                                 // style={{ maxWidth: '50%', maxHeight: '80%'}}
                                 >
                                 <Grid item xs={12} className="results">
                                 {/* <Grid item xs={5}> //centered the grid columns on the page but made long texts shove images down*/}
                                  {/* the number inside {} indicates how wide the card can be. Weird.*/}
                                     <Card className="card" variant="outlined" 
-                                    sx={{minWidth: "400px", 
-                                        minHeight: "380px",
-                                        backgroundColor: "transparent",
+                                    sx={{minWidth: "410px", 
+                                        minHeight: "auto",
+                                        backgroundColor: "#003049",
                                         borderRadius: 7,
-                                        boxShadow: 1
+                                        boxShadow: 4
                                 }}>
-                                        {/* MOVIE CARDS*/}
-                                        <Link to="/details" style={{ textDecoration: 'none', color: 'black'}}>
-                                        <CardContent key={search.id} Link to="/details" onClick={setOneActivity}>
-                                            <Typography variant="h3">{search.title}</Typography>
-                                            <Typography variant="h6">{search.description}</Typography>
-                                        </CardContent>
-                                        </Link>
+                                        {/* ACTIVITY CARDS*/}
+                                        <div>
+                                            <CardContent key={search.id} onClick={setOneActivity}>
+                                                <Typography variant="h3" style={{'color':'#eae2b7', 'font-weight':'300', 'font-size':'30px', 'padding-bottom':'15px'}}>{search.title}</Typography>
+                                                <Typography variant="h6" style={{'color':'#eae2b7', 'font-weight':'250', 'font-size':'18px'}}>{search.description.slice(0, 133)}</Typography>
+                                            </CardContent>
+                                        </div>
                                     </Card>
                                 </Grid>
                             </Grid>
