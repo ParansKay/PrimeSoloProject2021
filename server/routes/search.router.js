@@ -9,7 +9,7 @@ const router = express.Router();
     const queryText = `SELECT activity.title, activity.description, activity.actors, activity.id, tag.name FROM activity
       JOIN activity_tag ON activity.id=activity_tag.activity_id
       JOIN tag ON activity_tag.tag_id=tag.id
-      WHERE tag.id=$1`
+      WHERE tag.id=$1 AND "clearance_level" = 0`
       console.log( 'req.query.id----->', [req.query.id]);
       pool.query(queryText, [req.query.id])
         .then( result => {
