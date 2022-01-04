@@ -174,9 +174,11 @@ function EditPage(){
                 <Card className="card" variant="outlined" style={{'background-color':'#061e2a', 'color':'#eae2b7'}}>
                         {/* TITLE INPUT */}
                         <CardContent>
-                            <TextField
+                            <StyledTextField
                                 id="outlined-multiline-static"
-                                label="activity title"
+                                label="What is this exercise called?"
+                                style={{'minWidth':'380px'}}
+                                variant="outlined"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={editedActivity.title}
@@ -185,8 +187,8 @@ function EditPage(){
                         </CardContent> 
                         {/* ACTORS INPUT */}
                         <CardContent>
-                            <FormControl className="formClass" sx={{ minWidth: 200,  }}>
-                                <InputLabel id="actors-select-label">How many actors?</InputLabel>
+                           <StyledForm className="formClass"  style={{'minWidth':'380px'}}>
+                            <InputLabel id="actors-select-label">How many actors does it require?</InputLabel>
                                     <Select
                                         labelId="actors-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
@@ -196,22 +198,24 @@ function EditPage(){
                                         label="actorsSelet"
                                         onChange={( event )=>addActors( event )}
                                     >
-                                        <MenuItem value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}}value="">
                                             <em>How many actors?</em>
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem value={'1'}>Single</MenuItem>
-                                            <MenuItem value={'2'}>2 Actors</MenuItem>
-                                            <MenuItem value={'5+'}>5+</MenuItem>
-                                            <MenuItem value={'10+'}>10+</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'1'}>Single</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'2'}>2 Actors</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'5+'}>5+</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'10+'}>10+</MenuItem>
                                     </Select>
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>  
                         {/* DESCRIPTION INPUT */}
                         <CardContent>
-                        <TextField
+                        <StyledTextField
                                 id="outlined-multiline-static"
-                                label="activity decription"
+                                label="Tell us more about this exercise. (describe every step in detail)"
+                                style={{'minWidth':'380px'}}
+                                variant="outlined"
                                 multiline
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
@@ -221,8 +225,8 @@ function EditPage(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                            <FormControl className="formClass" sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="genre-select-label">pick a tag</InputLabel>
+                        <StyledForm className="formClass" style={{'minWidth':'380px'}}>
+                        <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
                                         // this ID needs to be the same as the ID of InputLabel ^^
@@ -232,35 +236,36 @@ function EditPage(){
                                         label="tagSelect"
                                         onChange={( event )=>addTag( event )}
                                     >
-                                        <MenuItem value="">
+                                        <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}} value="">
+                                            <em>pick a tag</em>
                                             {/* <em>{editedActivity.tags}</em> */}
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem value={1}>Breath Support</MenuItem>
-                                            <MenuItem value={2}>Character Development</MenuItem>
-                                            <MenuItem value={3}>Connection / Relationships</MenuItem>
-                                            <MenuItem value={4}>Energy</MenuItem>
-                                            <MenuItem value={5}>Enunciation</MenuItem>
-                                            <MenuItem value={6}>Escalation / Urgency</MenuItem>
-                                            <MenuItem value={7}>Focus</MenuItem>
-                                            <MenuItem value={8}>Improvisation</MenuItem>
-                                            <MenuItem value={9}>Listening</MenuItem>
-                                            <MenuItem value={10}>Memorization</MenuItem>
-                                            <MenuItem value={11}>Physical Stamina</MenuItem>
-                                            <MenuItem value={12}>Projection</MenuItem>
-                                            <MenuItem value={13}>Stage Presence</MenuItem>
-                                            <MenuItem value={14}>Vulnerability</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={1}>Breath Support</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={2}>Character Development</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={3}>Connection / Relationships</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={4}>Energy</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={5}>Enunciation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={6}>Escalation / Urgency</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={7}>Focus</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={8}>Improvisation</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={9}>Listening</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={10}>Memorization</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={11}>Physical Stamina</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={12}>Projection</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={13}>Stage Presence</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={14}>Vulnerability</MenuItem>
                                     </Select>
-                                    <FormHelperText>Select a tag that best describes this activity!</FormHelperText>
+                                    {/* <FormHelperText>Select a tag that best describes this activity!</FormHelperText> */}
                                     {/* this places a "helper text" for the user under the select box */}
-                            </FormControl>
+                            </StyledForm>
                         </CardContent>
                          {/*BUTTONS  */}
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="NextPageButton">
-                                <Link to="/details">
-                                    <Button size="large" variant="outlined" color="warning" fontSize="large">Cancel</Button>
+                                <Link to="/details" style={{'text-decoration':'none'}}>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
                                 </Link>
                                     <Button className="next" variant="contained" color="warning" size="large" onClick={editThisEActivity}>Save</Button>
                             </div>

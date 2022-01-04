@@ -225,7 +225,7 @@ function EditPage(){
                         </CardContent> 
                         {/* TAGS DROP DOWN */}
                        <CardContent>
-                       <StyledForm className="formClass" style={{'minWidth':'380px'}}>
+                       <StyledForm className="formClass" style={{'minWidth':'380px', 'background-color':'red'}}>
                        <InputLabel id="genre-select-label">What does this exercise help with?</InputLabel>
                                     <Select
                                         labelId="tag-select-label"
@@ -237,6 +237,7 @@ function EditPage(){
                                         onChange={( event )=>addTag( event )}
                                     >
                                         <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049', 'font-weight':'200'}} value="">
+                                        <em>pick a tag</em>
                                             {/* <em>{editedActivity.tags}</em> */}
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
