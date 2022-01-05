@@ -137,21 +137,35 @@ function SubmissionDetailPage(){
                                     onClose={handleClose}
                                     aria-labelledby="alert-dialog-title"
                                     aria-describedby="alert-dialog-description"
+                                    PaperProps={{
+                                        style: {
+                                          backgroundColor: '#003049',
+                                          color:'black',
+                                          'border-radius':'40px',
+                                          height: 350,
+                                          color: '#eae2b7'
+                                        },
+                                      }}
                                 >
-                                    <DialogTitle id="alert-dialog-title">
-                                    {"Would you like to approve this submission?"}
+                                    <DialogTitle id="alert-dialog-title" style={{'font-family':'Poiret One', 'font-size':'33px'}}>
+                                    {"Submission Approval"}
                                     </DialogTitle>
                                     <DialogContent>
-                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto'}}>
+                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto', 'color':'#eae2b7'}}>
                                        By clicking approve, you are adding this submission for all users to see. If you'd like to continue editing, click "not yet".
+                                    </DialogContentText>
+                                    <br/>
+                                    <DialogContentText style={{'font-family':'roboto', 'color':'#eae2b7'}}>
+                                    Clicking "Approve" will also return you to the Submissions page.
                                     </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                    <Button variant='contained' style={{'background-color':'#d62828', 'font-family':'roboto'}} onClick={handleClose}>Not yet</Button>
-                                    <Button variant='contained' style={{'background-color':'#f77f00', 'font-family':'roboto'}} onClick={approvePost} autoFocus>
+                                    <Button variant='contained' style={{'background-color':'#d62828', 'font-family':'roboto', 'border-radius':'20px', 'margin-right':'5px'}} onClick={handleClose}>Not yet</Button>
+                                    <Button variant='contained' style={{'background-color':'#f77f00', 'font-family':'roboto', 'border-radius':'20px', 'margin-right':'20px'}} onClick={approvePost} autoFocus>
                                         Approve!
                                     </Button>
                                     </DialogActions>
+                                    <br/>
                                 </Dialog>
                                 </div>
                               {/* NUMBER OF ACTORS */}
