@@ -30,6 +30,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { makeStyles } from '@material-ui/styles';
 import styled from "styled-components";
+import Modal from '@mui/material/Modal';
 
 const StyledTextField = styled(TextField)({
   '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
@@ -89,6 +90,23 @@ const StyledForm = styled(FormControl)({
     },
   })
   ;
+
+const StyledModal = styled(Modal)({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  height: 600,
+  // bgcolor: 'white',
+  // border: '2px solid #000',
+  // 'border-radius': '50px',
+  // boxShadow: 50,
+  'background-color': '#003049',
+  'background-opacity': 0.5,
+  p: 8,
+
+})
 
 function NewActivitySubmit(){
     // const[name, setName] = useState( null );
@@ -173,6 +191,43 @@ function NewActivitySubmit(){
                 <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
                 <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
             </div>
+            {/* MODAL */}
+            <div className="modal">
+                              <StyledModal
+                              open={open}
+                              onClose={handleClose}
+                              aria-labelledby="modal-modal-title"
+                              aria-describedby="modal-modal-description"
+                              style={{'color':'#eae2b7', 'background-color':'#003049'}}
+                              // boxShadow={3}
+                            >
+                              <Box>
+                                <Typography id="modal-modal-title" variant="h6" component="h2" style={{margin:'20px', 'font-family':'Poiret One', 'font-size':'70px', 'justify':'center', 'padding-left':'25px', 'padding-top':'10px'}}>
+                                  You did it!
+                                </Typography>
+                                <Box
+                                  component="img"
+                                  sx={{
+                                    height: 233,
+                                    width: 350,
+                                    maxHeight: { xs: 233, md: 167 },
+                                    maxWidth: { xs: 350, md: 250 },
+                                  }}
+                                  alt="The house from the offer."
+                                  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+                                />
+                                <Typography id="modal-modal-description" style={{margin:'20px', 'font-family':'roboto', 'font-weight':'200', 'font-size':'20px', 'justify':'center'}}>
+                                  Your exercise has been submitted for feedback and review by our admin. Once / if approved, it will be shared with the whole community! Yay! 
+                                </Typography>
+                                  <div style={{margin:'20px'}}>
+                                    <Button variant='contained' size="large" style={{'background-color':'#f77f00', 'font-family':'roboto', position: 'fixed', top:'500px', left: '15px', 'border-radius':'20px'}} onClick={handleClose}>Go back to home</Button>
+                                    <Button variant='contained' size="large" style={{'background-color':'#d62828', 'font-family':'roboto', top:'500px', position: 'absolute', left:'210px', 'border-radius':'20px'}} onClick={submitAnother} autoFocus>
+                                        Submit another!
+                                    </Button>
+                                  </div>
+                              </Box>
+                              </StyledModal>
+                    </div>
             <div>
                 <Grid
                     container
@@ -183,6 +238,7 @@ function NewActivitySubmit(){
 
                 <Grid item xs={12}>
                 {/* the number inside {} indicates how wide the card can be. Weird.*/}
+            
                     <Card className="card" variant="outlined" style={{'background-color':'#061e2a', 'color':'#eae2b7'}}>
                         {/* TITLE INPUT */}
                         <CardContent>
@@ -288,16 +344,16 @@ function NewActivitySubmit(){
                                     <Button className="next" variant="contained" color="warning"style={{'border-radius':'20px'}} size="large" onClick={addNewActivity}>Save</Button>
                                 {/* </Link> */}
                             </div>
-                            {/* MODAL */}
-                            <div className="modal">
-                            <Dialog
+                            
+                            {/* <Dialog
                                     open={open}
                                     onClose={handleClose}
                                     aria-labelledby="alert-dialog-title"
                                     aria-describedby="alert-dialog-description"
+                                    style={{'color':'red'}}
                                 >
-                                    <DialogTitle id="alert-dialog-title">
-                                    {"Would you like to approve this submission?"}
+                                    <DialogTitle id="alert-dialog-title" style={{'font-family':'Poiret One'}}>
+                                    {"You did it!"}
                                     </DialogTitle>
                                     <DialogContent>
                                     <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto'}}>
@@ -310,8 +366,7 @@ function NewActivitySubmit(){
                                         Submit another!
                                     </Button>
                                     </DialogActions>
-                                </Dialog>
-                            </div>
+                                </Dialog> */} 
                         </CardActions>
                     </Card>
                 </Grid>      
