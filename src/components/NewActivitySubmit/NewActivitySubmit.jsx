@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
 import * as React from 'react';
-import { Link } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
+import { Link, useHistory } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 //MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -23,6 +23,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Paper from '@mui/material/Paper';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { makeStyles } from '@material-ui/styles';
 import styled from "styled-components";
 
@@ -88,6 +93,7 @@ const StyledForm = styled(FormControl)({
 function NewActivitySubmit(){
     // const[name, setName] = useState( null );
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const user = useSelector((store) => store.user);
     const favorite = useSelector((store) => store.favorite);
@@ -97,6 +103,17 @@ function NewActivitySubmit(){
 
     const[activityStat, setActivityStat] = useState();
 
+    //HANLDE POP-UP MODAL
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    // END HANDLE POP-UP MODAL
 
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
@@ -134,12 +151,21 @@ function NewActivitySubmit(){
     };
 
     const addNewActivity = (event) => {
-        dispatch({ 
+          dispatch({ 
             type: 'ADD_ACTIVITY',
             payload: newActivity
         }, []);
         console.log('adding new activity!', newActivity)
-    };
+        handleClickOpen();
+        };
+        
+
+    const submitAnother = ()=>{
+      const timer = setTimeout(()=>{
+        history.push("/newsubmit");
+        }, 200);
+    }
+
 
     return(
         <div>
@@ -165,6 +191,7 @@ function NewActivitySubmit(){
                                 variant="outlined"
                                 label="What is this exercise called?"
                                 autoComplete="off"
+                                required
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
@@ -182,6 +209,7 @@ function NewActivitySubmit(){
                                         id="actors-select"
                                         // but this id needs to be different from the other two above ^^
                                         value={newActivity.actors}
+                                        required
                                         label="actorsSelet"
                                         onChange={( event )=>addActors( event )}
                                     >
@@ -203,6 +231,7 @@ function NewActivitySubmit(){
                                 label="Tell us more about this exercise. (describe every step in detail)"
                                 variant="outlined"
                                 autoComplete="off"
+                                required
                                 multiline
                                 style={{'minWidth':'380px'}}
                                 //lets figure out how to make this box larger!!!!!!!!!!!
@@ -221,6 +250,7 @@ function NewActivitySubmit(){
                                         id="tag-select"
                                         // but this id needs to be different from the other two above ^^
                                         value={newActivity.tags}
+                                        required
                                         label="tagSelect"
                                         onChange={( event )=>addTag( event )}
                                     >
@@ -254,9 +284,33 @@ function NewActivitySubmit(){
                                 <Link to="/" style={{'text-decoration':'none'}}>
                                     <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
-                                <Link to="/" style={{'text-decoration':'none'}}>
+                                {/* <Link to="/" style={{'text-decoration':'none'}}> */}
                                     <Button className="next" variant="contained" color="warning"style={{'border-radius':'20px'}} size="large" onClick={addNewActivity}>Save</Button>
-                                </Link>
+                                {/* </Link> */}
+                            </div>
+                            {/* MODAL */}
+                            <div className="modal">
+                            <Dialog
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title">
+                                    {"Would you like to approve this submission?"}
+                                    </DialogTitle>
+                                    <DialogContent>
+                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto'}}>
+                                       By clicking approve, you are adding this submission for all users to see. If you'd like to continue editing, click "not yet".
+                                    </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                    <Button variant='contained' style={{'background-color':'#d62828', 'font-family':'roboto'}} onClick={handleClose}>Not yet</Button>
+                                    <Button variant='contained' style={{'background-color':'#f77f00', 'font-family':'roboto'}} onClick={submitAnother} autoFocus>
+                                        Submit another!
+                                    </Button>
+                                    </DialogActions>
+                                </Dialog>
                             </div>
                         </CardActions>
                     </Card>
