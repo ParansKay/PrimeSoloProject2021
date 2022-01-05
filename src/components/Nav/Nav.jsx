@@ -14,18 +14,27 @@ export default function ButtonAppBar() {
 
   const dispatch = useDispatch();
 
+  const user = useSelector((store) => store.user);
+
   return (
+    
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
+        
+      {user.id && (
+                <>
         <Toolbar style={{'background-color':'#061e2a', 'color':'#fcbf49', 'font-family':'Poiret One'}}>
+
+
           <Typography className="logoonavbar" size="large" style={{'font-family':'Poiret One'}} variant="h6" component="div" sx={{ flexGrow: 1 }}>
             WHAT-A-TO-DO
           </Typography>
-
           <IconButton label="LogOut" size="large" onClick={() => dispatch({ type: 'LOGOUT' })} style={{'color':'#eae2b7', 'font-size':'30px'}}><LogoutIcon/></IconButton>
             
 
         </Toolbar>
+        </>
+      )}
       </AppBar>
     </Box>
   );

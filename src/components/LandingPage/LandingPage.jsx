@@ -36,7 +36,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h2 style={{'padding-top':'40px'}}>{heading}</h2>
       <div>
                 <Grid
                     container
@@ -49,13 +49,10 @@ function LandingPage() {
                         {/* HEADER */}
                         <CardContent>
                         <div>
-                          <RegisterForm />
-                          <center>
-                            <h4>Already a Member?</h4>
-                            <Button className="btn btn_sizeSm" onClick={onLogin}>
-                              Login
-                            </Button>
-                          </center>
+          
+                          <div>
+                          <Button color="warning" type="submit" variant="contained" size="large" name="submit" value="Log In" style={{padding: '15px 30px', 'border-radius': '50px', 'font-size':'1.2rem', 'background-color':'#d62828'}}>LOG IN</Button>
+                          </div>
                         </div>
                         </CardContent>
                   </Card>
