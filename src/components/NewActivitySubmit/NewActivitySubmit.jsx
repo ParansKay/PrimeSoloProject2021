@@ -208,20 +208,23 @@ function NewActivitySubmit(){
                                 <Box
                                   component="img"
                                   sx={{
-                                    height: 233,
-                                    width: 350,
+                                    height: 200,
+                                    width: 'auto',
                                     maxHeight: { xs: 233, md: 167 },
                                     maxWidth: { xs: 350, md: 250 },
+                                    position: 'absolute',
+                                    'top':'110px',
+                                    'left':'100px'
                                   }}
                                   alt="The house from the offer."
-                                  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+                                  src="/img/willys.png"
                                 />
-                                <Typography id="modal-modal-description" style={{margin:'20px', 'font-family':'roboto', 'font-weight':'200', 'font-size':'20px', 'justify':'center'}}>
-                                  Your exercise has been submitted for feedback and review by our admin. Once / if approved, it will be shared with the whole community! Yay! 
+                                <Typography id="modal-modal-description" style={{margin:'20px', 'font-family':'roboto', 'font-weight':'200', 'font-size':'20px', 'justify':'center', 'padding-top':'150px'}}>
+                                  The bard himself would thank you (if he could) for this entry! Your exercise has been submitted for feedback and review by our admin. Once / if approved, it will be shared with the whole community! Yay! 
                                 </Typography>
                                   <div style={{margin:'20px'}}>
-                                    <Button variant='contained' size="large" style={{'background-color':'#f77f00', 'font-family':'roboto', position: 'fixed', top:'500px', left: '15px', 'border-radius':'20px'}} onClick={handleClose}>Go back to home</Button>
-                                    <Button variant='contained' size="large" style={{'background-color':'#d62828', 'font-family':'roboto', top:'500px', position: 'absolute', left:'210px', 'border-radius':'20px'}} onClick={submitAnother} autoFocus>
+                                    <Button variant='contained' size="large" style={{'background-color':'#f77f00', 'font-family':'roboto', position: 'fixed', top:'520px', left: '15px', 'border-radius':'20px'}} onClick={handleClose}>Go back to home</Button>
+                                    <Button variant='contained' size="large" style={{'background-color':'#d62828', 'font-family':'roboto', top:'520px', position: 'absolute', left:'210px', 'border-radius':'20px'}} onClick={submitAnother} autoFocus>
                                         Submit another!
                                     </Button>
                                   </div>
