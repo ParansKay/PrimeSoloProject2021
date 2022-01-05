@@ -347,7 +347,7 @@ function NewActivitySubmit(){
                                     <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
                                 {/* <Link to="/" style={{'text-decoration':'none'}}> */}
-                                    <Button className="next" variant="contained" color="warning"style={{'border-radius':'20px'}} size="large" onClick={addNewActivity}>Save</Button>
+                                    <Button className="next" variant="contained" color="warning" style={{'border-radius':'20px'}} size="large" onClick={addNewActivity}>Save</Button>
                                 {/* </Link> */}
                             </div>
                             

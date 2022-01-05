@@ -278,15 +278,15 @@ function EditPage(){
                          {/*BUTTONS  */}
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
-                            <div className="NextPageButton">
-                            <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'color': 'white', 'border-color':'#d62828',right: "100px"}}>
+                            <div className="newSubmitPageBtns">
+                            <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'border-radius':'20px', 'color': '#d62828', 'border-color':'#d62828', right: "90px"}}>
                               Delete
                             {/* <DeleteIcon fontSize="large" style={{ 'color': 'white', position: "absolute", right: "150px"}}/> */}
                             </Button>
                                 <Link to="/details" style={{'text-decoration':'none'}}>
-                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
-                                    <Button className="next" variant="contained" color="warning" size="large" onClick={editThisEActivity}>Save</Button>
+                                    <Button className="next" variant="contained" color="warning" style={{'border-radius':'20px'}} size="large" onClick={editThisEActivity}>Save</Button>
                             </div>
                         </CardActions>
                     </Card>
