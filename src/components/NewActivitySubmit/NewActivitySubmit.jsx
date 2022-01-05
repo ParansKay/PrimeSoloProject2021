@@ -129,7 +129,10 @@ function NewActivitySubmit(){
     };
 
     const handleClose = () => {
-        setOpen(false);
+        // setOpen(false);
+        const timer = setTimeout(()=>{
+          history.push("/");
+          }, 200);
     };
     // END HANDLE POP-UP MODAL
 
