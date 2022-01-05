@@ -46,10 +46,10 @@ const StyledTextField = styled(TextField)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
 })
 ;
@@ -77,10 +77,10 @@ const StyledForm = styled(FormControl)({
       },
     },
    ' & .MuiInputBase-root': { //this changes the color of the input text
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
     '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
   })
   ;
@@ -164,6 +164,7 @@ function NewActivitySubmit(){
                                 id="outlined-multiline-static"
                                 variant="outlined"
                                 label="What is this exercise called?"
+                                autoComplete="off"
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
@@ -201,6 +202,7 @@ function NewActivitySubmit(){
                                 id="outlined-multiline-static"
                                 label="Tell us more about this exercise. (describe every step in detail)"
                                 variant="outlined"
+                                autoComplete="off"
                                 multiline
                                 style={{'minWidth':'380px'}}
                                 //lets figure out how to make this box larger!!!!!!!!!!!
@@ -250,10 +252,10 @@ function NewActivitySubmit(){
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="newSubmitPageBtns">
                                 <Link to="/" style={{'text-decoration':'none'}}>
-                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
                                 <Link to="/" style={{'text-decoration':'none'}}>
-                                    <Button className="next" variant="contained" color="warning" size="large" onClick={addNewActivity}>Save</Button>
+                                    <Button className="next" variant="contained" color="warning"style={{'border-radius':'20px'}} size="large" onClick={addNewActivity}>Save</Button>
                                 </Link>
                             </div>
                         </CardActions>
