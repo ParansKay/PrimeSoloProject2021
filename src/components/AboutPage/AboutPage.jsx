@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+      <h2 style={{'margin':'60px','padding-top':'40px','font-family':'Poiret One', 'font-size':'30px'}}>About</h2>
       </div>
     </div>
   );

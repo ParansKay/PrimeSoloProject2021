@@ -49,13 +49,13 @@ function LandingPage() {
           'left':'30px'
         }}
         alt="The house from the offer."
-        src="/img/templogo.png"
+        src="/img/logo.png"
                                 />
       {/* <h2 style={{'margin':'20px','font-family':'Poiret One', 'font-size':'90px', position: 'absolute', 'top':'90px'}}>What-</h2>
       <h2 style={{'margin':'20px','font-family':'Poiret One', 'font-size':'90px', position: 'absolute', 'top':'155px'}}>A-</h2>
       <h2 style={{'margin':'20px','font-family':'Poiret One', 'font-size':'90px', position: 'absolute', 'top':'210px'}}>To-</h2>
       <h2 style={{'margin':'20px','font-family':'Poiret One', 'font-size':'90px', position: 'absolute', 'top':'270px'}}>Do</h2> */}
-      <h2 style={{'margin':'20px','padding-top':'250px','font-family':'Poiret One', 'font-size':'20px', 'justify':'center'}}>An app for theatre and psychology enthusiasts that tells you what to do, when you don't know what to do.</h2>
+      <h2 style={{'margin':'20px','padding-top':'250px','font-family':'Poiret One', 'font-size':'20px', 'justify':'center'}}>What-A-To-Do is an app for theatre and psychology enthusiasts that tells you what to do, when you don't know what to do.</h2>
         <div>
         <Button color="warning" size="large" type="submit" variant="contained" size="large" name="submit" value="Log In" style={{'margin-left':'210px','border-radius': '50px', 'font-size':'1.2rem', 'background-color':'#d62828', position: 'absolute', top:'550px', 'font-size':'30px'}} onClick={onLogin}>LOG IN</Button>
         <Button

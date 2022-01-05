@@ -219,8 +219,7 @@ function NewActivitySubmit(){
                                     'top':'110px',
                                     'left':'100px'
                                   }}
-                                  alt="The house from the offer."
-                                  src="/img/willys.png"
+                                    src="/img/willys.png"
                                 />
                                 <Typography id="modal-modal-description" style={{margin:'20px', 'font-family':'roboto', 'font-weight':'200', 'font-size':'20px', 'justify':'center', 'padding-top':'150px'}}>
                                   The bard himself would thank you (if he could) for this entry! Your exercise has been submitted for feedback and review by our admin. Once / if approved, it will be shared with the whole community! Yay! 
