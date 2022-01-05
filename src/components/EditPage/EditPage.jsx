@@ -46,10 +46,10 @@ const StyledTextField = styled(TextField)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
 })
 ;
@@ -77,10 +77,10 @@ const StyledForm = styled(FormControl)({
       },
     },
    ' & .MuiInputBase-root': { //this changes the color of the input text
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
     '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
   })
   ;
@@ -277,14 +277,14 @@ function EditPage(){
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="newSubmitPageBtns">
-                                <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'color': 'white', 'border-color':'#d62828',right: "100px"}}>
+                                <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'border-radius':'20px', 'color': '#d62828', 'border-color':'#d62828', right: "90px"}}>
                                   Delete
                                 {/* <DeleteIcon fontSize="large" style={{ 'color': 'white', position: "absolute", right: "150px"}}/> */}
                                 </Button>
                                 <Link to="/submissiondetail" style={{'text-decoration':'none'}}>
-                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828'}} fontSize="large">Cancel</Button>
+                                    <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
-                                    <Button className="next" variant="contained" color="warning" size="large" onClick={editThisActivity}>Save</Button>
+                                    <Button className="next" variant="contained" color="warning" style={{'border-radius':'20px'}} size="large" onClick={editThisActivity}>Save</Button>
                             </div>
                         </CardActions>
                     </Card>
