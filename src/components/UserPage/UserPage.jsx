@@ -49,7 +49,7 @@ const StyledForm = styled(FormControl)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: '#d9d9d9',
+    color: '#eae2b7',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
     color: '#d9d9d9',
@@ -138,12 +138,12 @@ function UserPage() {
         <CardContent className="welcomeUserName">
             {/* USER GREETING */}
               <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px', 'color':'#fcbf49'}}>Welcome, </Typography>
-              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px'}}>{user.first_name}!</Typography>
+              <Typography variant="h5" align="center" style={{'font-family':'Poiret One', 'font-size':'40px', 'color':'#eae2b7'}}>{user.first_name}!</Typography>
               <br/>
               <br/>
                 {/* QUOTE RANDOMIZER */}
                 <div className="quoteRandomizer"> 
-                <Card style={{'background-color':'#003049', 'color':'#d9d9d9', 'padding':'15px', 'border-radius':'20px'}}>
+                <Card style={{'background-color':'#003049', 'color':'#eae2b7', 'padding':'15px', 'border-radius':'20px'}}>
                   <Typography align="center" style={{'font-style':'italic'}}>"{randomQuote}"</Typography>
                   <Typography alignContent="right" align="right" style={{'padding-right':'20px'}}>-{quoteAuthor}</Typography>
                 </Card>
@@ -157,17 +157,16 @@ function UserPage() {
         {/* INPUT */}
         <div>
           <CardContent>
-            <Typography align="center" variant="h5" style={{'font-family':'Roboto', 'font-weight': '300', 'font-size': '16px','padding-top':'20px'}}>WHAT DO YOU NEED HELP WITH TODAY?</Typography>
+            <Typography align="center" variant="h5" style={{'font-family':'Roboto', 'font-weight': '300', 'font-size': '16px','padding-top':'20px', 'color':'#eae2b7'}}>WHAT DO YOU NEED HELP WITH TODAY?</Typography>
             <br/>
             <center>
             <StyledForm align="center" className="formClass" sx={{ m: 1, minWidth: 300}}>
-                <InputLabel id="tag-select-label">Pick a category</InputLabel>
+                <InputLabel id="tag-select-label" style={{'color':'#eae2b7'}}>Pick a category</InputLabel>
                     <Select
                         labelId="tag-select-label"
                         // this ID needs to be the same as the ID of InputLabel ^^
                         id="tag-select"
                         // but this id needs to be different from the other two above ^^
-                        // value={newMovie.genre}
                         label="tagSelect"
                         defaultValue={0}
                         onChange={(event) => setTagId(event.target.value)}
