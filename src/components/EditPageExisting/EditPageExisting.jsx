@@ -30,7 +30,7 @@ import { IconButton } from '@mui/material';
 
 const StyledTextField = styled(TextField)({
   '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
-    color: '#f77f00',
+    color: '#eae2b7',
   },
   '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
     borderBottomColor: 'white',
@@ -48,17 +48,17 @@ const StyledTextField = styled(TextField)({
     },
   },
  ' & .MuiInputBase-root': { //this changes the color of the input text
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
   '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-    color: '#FAEBD7',
+    color: '#eae2b7',
   },
 })
 ;
 
 const StyledForm = styled(FormControl)({
     '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
-      color: '#f77f00',
+      color: '#eae2b7',
     },
     '& .MuiFormHelperText-root':{
       color: '#d9d9d9',
@@ -79,10 +79,10 @@ const StyledForm = styled(FormControl)({
       },
     },
    ' & .MuiInputBase-root': { //this changes the color of the input text
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
     '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-      color: '#FAEBD7',
+      color: '#eae2b7',
     },
   })
   ;
