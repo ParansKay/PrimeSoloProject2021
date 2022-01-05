@@ -30,7 +30,7 @@ import styled from "styled-components";
 // HINT: If I ever forget how to make this work, going to the Material UI website helped me understand Custom CSS with MUI
 const StyledTextField = styled(TextField)({
     '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
-      color: 'white',
+      color: '#eae2b7',
     },
     '& .MuiInput-underline:after': { //this changes the border color AFTER we've input text
       borderBottomColor: 'white',
@@ -48,10 +48,10 @@ const StyledTextField = styled(TextField)({
       },
     },
    ' & .MuiInputBase-root': { //this changes the color of the input text
-      color: 'white',
+      color: '#eae2b7',
     },
     '& .MuiFormLabel-root': { //this changes the color of the input label at it's default state
-      color: 'white',
+      color: '#eae2b7',
     },
   })
 ;
