@@ -98,7 +98,7 @@ return (
                 </>
                 )}
 
-                <Link to="/about">
+                <Link to="/aboutw">
                 <BottomNavigationAction label="Home" size="large" icon={<InfoIcon style={{'color':'#003049', 'font-size':'30px'}}/>} />
                 {/* About */}
                 </Link>
