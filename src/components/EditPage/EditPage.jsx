@@ -163,7 +163,7 @@ function EditPage(){
         }
       })
       const timer = setTimeout(()=>{
-        history.push("/allactivity");
+        history.push("/submissionscontrol");
         }, 200);
     }
 
