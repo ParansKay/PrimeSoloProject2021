@@ -145,7 +145,7 @@ function NewActivitySubmit(){
         <div>
              <div className="activityListMap">
                 <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
-                <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>LET'S SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
+                <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
             </div>
             <div>
                 <Grid
