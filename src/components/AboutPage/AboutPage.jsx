@@ -22,7 +22,8 @@ function AboutPage() {
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Adding "shared by" username</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','font-size':'20px', 'margin-top':'10px', 'margin-bottom':'10px','font-weight':'250', 'color':'#eae2b7'}}>• Adding profiles for users, especially instructors and coaches so that users are able to view their upcoming projects and classes. </Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Ability to rate and view ratings for each activity</Typography>
-      
+      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Ability to select / edit multiple tags</Typography>
+
       <br/>
       <br/>
       <flexbox style={{'margin-left':'20px','padding':'10px','font-family':'roboto', 'font-weight':'500', 'font-size':'20px', 'background-color':'#fcbf49','color':'#003049', 'border-radius':'30px'}}>Technology Utilized:</flexbox>
@@ -36,7 +37,7 @@ function AboutPage() {
       <br/>
       <br/>
       <flexbox style={{'margin-left':'20px','padding':'10px','font-family':'roboto', 'font-weight':'500', 'font-size':'20px', 'background-color':'#fcbf49','color':'#003049', 'border-radius':'30px'}}>Special thanks to:</flexbox>
-      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'35px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Prime Digital Academy</Typography>
+      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'35px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Prime Digital Academy, especially my instructor Dev and cohort-mate Amanda!</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Dillon Baxendell</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Anne Byrd, and the incredible instructors at Normandale College Theatre</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Daleko Arts Theatre</Typography>
