@@ -171,6 +171,14 @@ function NewActivitySubmit(){
         console.log( 'new tag is:', newActivity.tags );
     };
 
+    const newInputDemoKey =(event) => {
+      setNewActivity({title: 'What-A-To-Do Tongue Twister',
+                      description: 'What a to-do to die today at a minute or two ‘til two. A thing distinctly hard to say, but harder still to do. For they’ll beat a tattoo at twenty til two. A rat-a-tat-tat-a-tat-tat-a-tat-too. And the dragon will come when he hears the drum, at a minute or two ‘til two today, at a minute or two ‘til two.',
+                      actors: '5+',
+                      tags: 5
+                    });
+    }
+
     const addNewActivity = (event) => {
           dispatch({ 
             type: 'ADD_ACTIVITY',
@@ -191,7 +199,7 @@ function NewActivitySubmit(){
     return(
         <div>
              <div className="activityListMap">
-                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}}>New exercise</Typography>
+                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}} onClick={newInputDemoKey}>New exercise</Typography>
                 <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
             </div>
             {/* MODAL */}
@@ -253,7 +261,6 @@ function NewActivitySubmit(){
                                 label="What is this exercise called?"
                                 autoComplete="off"
                                 required
-                                //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}
                                 defaultValue={newActivity.title}
                                 style={{'minWidth':'380px'}}
@@ -278,8 +285,8 @@ function NewActivitySubmit(){
                                             <em>How many actors?</em>
                                             {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
                                             </MenuItem>
-                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'1'}>Single</MenuItem>
-                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'2'}>2 Actors</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'1+'}>Single or more</MenuItem>
+                                            <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'2+'}>2 Actors or more</MenuItem>
                                             <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'5+'}>5+</MenuItem>
                                             <MenuItem style={{'color':'#fcbf49', 'background-color':'#003049'}} value={'10+'}>10+</MenuItem>
                                     </Select>
@@ -294,6 +301,7 @@ function NewActivitySubmit(){
                                 autoComplete="off"
                                 required
                                 multiline
+                                shrink='true'
                                 style={{'minWidth':'380px'}}
                                 //lets figure out how to make this box larger!!!!!!!!!!!
                                 rows={4}

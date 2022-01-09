@@ -99,6 +99,13 @@ function EditPage(){
 
     const[activityStat, setActivityStat] = useState();
 
+    useEffect(() => {
+      // dispatch({ type: ''});
+      dispatch({ type: 'FETCH_TAG',
+                  payload: editedActivity.id});
+      
+  }, []);
+
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
     const [editedActivity, setEditedActivity] = useState({
@@ -154,7 +161,7 @@ function EditPage(){
             } )
         const timer = setTimeout(()=>{
             history.push("/submissiondetail");
-            }, 200);
+            }, 500);
     };
 
     const deleteActivity = (event) => {

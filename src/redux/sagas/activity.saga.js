@@ -31,6 +31,11 @@ function* activitySaga() {
       yield put({ 
           type: 'SET_ACTIVITY', 
           payload: response.data });
+      
+      
+      // yield put({ 
+      //   type: 'SET_TAG', 
+      //   payload: response.data });
     } catch (error) {
       console.log('User get request failed', error);
     }
