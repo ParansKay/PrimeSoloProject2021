@@ -141,6 +141,7 @@ function SubmissionDetailPage(){
                                         style: {
                                           backgroundColor: '#003049',
                                           color:'black',
+                                          'min-height':'500px',
                                           'border-radius':'40px',
                                           height: 350,
                                           color: '#eae2b7'
@@ -150,8 +151,21 @@ function SubmissionDetailPage(){
                                     <DialogTitle id="alert-dialog-title" style={{'font-family':'Poiret One', 'font-size':'33px'}}>
                                     {"Submission Approval"}
                                     </DialogTitle>
+                                    <Box
+                                      component="img"
+                                      sx={{
+                                        height: 300,
+                                        width: 'auto',
+                                        maxHeight: { xs: 233, md: 167 },
+                                        maxWidth: { xs: 350, md: 250 },
+                                        position: 'absolute',
+                                        'top':'70px',
+                                        'left':'55px'
+                                      }}
+                                        src="/img/readytoapprove.png"
+                                    />
                                     <DialogContent>
-                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto', 'color':'#eae2b7'}}>
+                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto', 'color':'#eae2b7', 'padding-top':'160px'}}>
                                        By clicking approve, you are adding this submission for all users to see. If you'd like to continue editing, click "not yet".
                                     </DialogContentText>
                                     <br/>
