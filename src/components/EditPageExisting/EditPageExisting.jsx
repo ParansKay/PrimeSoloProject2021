@@ -27,6 +27,11 @@ import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/styles';
 import styled from "styled-components";
 import { IconButton } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const StyledTextField = styled(TextField)({
   '& label.Mui-focused': { //this changes the input label color AFTER it has been selected
@@ -101,7 +106,18 @@ function EditPage(){
 
     const[activityStat, setActivityStat] = useState();
 
+     //HANLDE POP-UP MODAL
+   const [open, setOpen] = React.useState(false);
 
+   const handleClickOpen = () => {
+       setOpen(true);
+   };
+
+   const handleClose = () => {
+       setOpen(false);
+   };
+   // END HANDLE POP-UP MODAL
+     
     // If we don't already have the activity, do the following 
     //Creating a new variable that allows us to send info updates to the saga, and then to the store
     const [editedActivity, setEditedActivity] = useState({
@@ -279,7 +295,7 @@ function EditPage(){
                         <CardActions sx={{ justifyContent: "right" }}> 
                         {/* ^^ centers the button, but not the card itself */}
                             <div className="newSubmitPageBtns">
-                            <Button size="large" variant="outlined" onClick={deleteActivity} style={{ 'border-radius':'20px', 'color': '#d62828', 'border-color':'#d62828', right: "90px"}}>
+                            <Button size="large" variant="outlined" onClick={handleClickOpen} style={{ 'border-radius':'20px', 'color': '#d62828', 'border-color':'#d62828', right: "90px"}}>
                               Delete
                             {/* <DeleteIcon fontSize="large" style={{ 'color': 'white', position: "absolute", right: "150px"}}/> */}
                             </Button>
@@ -287,6 +303,61 @@ function EditPage(){
                                     <Button size="large" variant="contained" style={{'color':'white', 'background-color':'#d62828', 'border-radius':'20px', right: '5px'}} fontSize="large">Cancel</Button>
                                 </Link>
                                     <Button className="next" variant="contained" color="warning" style={{'border-radius':'20px'}} size="large" onClick={editThisEActivity}>Save</Button>
+                            
+                             {/* DIALOGUE OPEN */}
+                             <div>
+                              <Dialog
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                    PaperProps={{
+                                        style: {
+                                          backgroundColor: '#003049',
+                                          color:'black',
+                                          'min-height':'500px',
+                                          'border-radius':'40px',
+                                          height: 350,
+                                          color: '#eae2b7'
+                                        },
+                                      }}
+                                >
+                                    <DialogTitle id="alert-dialog-title" style={{'font-family':'Poiret One', 'font-size':'33px'}}>
+                                      <center>{"Wait!"}</center>
+                                    </DialogTitle>
+                                    <Box
+                                      component="img"
+                                      sx={{
+                                        height: 300,
+                                        width: 'auto',
+                                        maxHeight: { xs: 233, md: 167 },
+                                        maxWidth: { xs: 350, md: 250 },
+                                        position: 'absolute',
+                                        'top':'16px',
+                                        'left':'55px'
+                                      }}
+                                        src="/img/cautionbottle.png"
+                                    />
+                                    <DialogContent style={{'padding-top':'160px'}}>
+                                    <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto', 'color':'#eae2b7'}}>
+                                       This action is irreversible! Deleting this submission will permanently remove it from all existance. Are you certain you'd like to delete this entry?
+                                    </DialogContentText>
+                                    <br/>
+                                    <DialogContentText style={{'font-family':'roboto', 'color':'#eae2b7'}}>
+                                    Clicking "Yes, Delete" will return you to the Submission Control page.
+                                    </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                    <Button variant='contained' style={{'background-color':'#d62828', 'font-family':'roboto', 'border-radius':'20px'}} onClick={handleClose}>I changed my mind</Button>
+                                    <Button variant='contained' style={{'background-color':'#f77f00', 'font-family':'roboto', 'border-radius':'20px', 'margin-right':'20px'}} onClick={deleteActivity} autoFocus>
+                                        Yes, Delete!
+                                    </Button>
+                                    </DialogActions>
+                                    <br/>
+                                </Dialog>
+                                </div>
+
+                            
                             </div>
                         </CardActions>
                     </Card>
