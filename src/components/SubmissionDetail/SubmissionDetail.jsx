@@ -131,7 +131,7 @@ function SubmissionDetailPage(){
                                     </IconButton>   
                                 }
 
-                            
+                            {/* DIALOGUE OPEN */}
                                 <Dialog
                                     open={open}
                                     onClose={handleClose}

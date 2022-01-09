@@ -171,8 +171,8 @@ function NewActivitySubmit(){
         console.log( 'new tag is:', newActivity.tags );
     };
 
-    const newInputDemoKey =(event) => {
-      setNewActivity({title: 'What-A-To-Do Tongue Twister',
+    const secretInputDemoKey = async () => {
+      await setNewActivity({title: 'What-A-To-Do Tongue Twister',
                       description: 'What a to-do to die today at a minute or two ‘til two. A thing distinctly hard to say, but harder still to do. For they’ll beat a tattoo at twenty til two. A rat-a-tat-tat-a-tat-tat-a-tat-too. And the dragon will come when he hears the drum, at a minute or two ‘til two today, at a minute or two ‘til two.',
                       actors: '5+',
                       tags: 5
@@ -199,7 +199,7 @@ function NewActivitySubmit(){
     return(
         <div>
              <div className="activityListMap">
-                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}} onClick={newInputDemoKey}>New exercise</Typography>
+                <Typography variant="h3" style={{'font-family':'Poiret One', 'margin-left':'20px'}} onClick={secretInputDemoKey}>New exercise</Typography>
                 <Typography variant="h3" style={{'font-size':'12px', 'margin-left':'20px', 'font-weight':'200'}}>SHARE YOUR INSIGHTS WITH THE COMMUNITY!</Typography>
             </div>
             {/* MODAL */}
