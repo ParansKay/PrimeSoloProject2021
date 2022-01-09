@@ -50,6 +50,9 @@ function SubmissionsControl() {
                 const setOneActivity = () => { 
                     //This ^^ function needs to be defined within the mapping.
                     // if defined outside, it won't work.
+                    dispatch({ 
+                        type: 'FETCH_TAG',
+                        payload: activity.id });
                     dispatch( {
                         type: 'SET_ONE_ACTIVITY', 
                         payload:{

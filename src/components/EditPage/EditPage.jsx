@@ -139,7 +139,10 @@ function EditPage(){
         dispatch({ 
             type: 'EDIT_ACTIVITY',
             payload: editedActivity
-        })
+        });
+        dispatch({ 
+          type: 'FETCH_TAG',
+          payload: editedActivity.id });
         dispatch( {
             type: 'SET_ONE_ACTIVITY', 
             payload:{

@@ -44,9 +44,14 @@ function DetailsPage(){
                 activityid: oneActivityReducer.id
             }
         });
-        dispatch({ 
-            type: 'FETCH_TAG',
-            payload: oneActivityReducer.id });
+        // dispatch({
+        //     type: 'FETCH_ACTIVITY_TAG',
+        //     payload:{
+        //         activityid: oneActivityReducer.id}
+        // })
+        // dispatch({ 
+        //     type: 'FETCH_TAG',
+        //     payload: oneActivityReducer.id });
         
         dispatch({type: 'FETCH_FAVORITE',
                   payload: user.id});

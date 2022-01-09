@@ -12,7 +12,7 @@ function AboutPage() {
   return (
     <div className="mainactivity">
       <div style={{'padding-bottom': '10px'}}>
-      <h2 style={{'margin':'20px','padding-top':'10px','font-family':'Poiret One', 'font-size':'40px'}}>About</h2>
+      <h2 style={{'margin':'20px', 'padding-top':'40px','font-family':'Poiret One', 'font-size':'40px'}}>About</h2>
       <Typography style={{'margin':'20px','padding-top':'10px','font-family':'roboto', 'font-weight':'250', 'font-size':'20px', 'color':'#eae2b7'}}>First, <b>THANK YOU</b> for using this app!</Typography>
       <Typography style={{'margin-left':'20px','margin-right':'20px','font-family':'roboto', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>This app was made with the aim to make information on acting more accessible to the theatre community. I remember how crucial it was for my directorial career to provide the right tools for my actors in the rehearsal space. Now, the difference for new directors in the field is they don't have to haul around books and supplies because the information is at their fingertips and constantly evolving and expanding. <b>#ThanksTechnology</b></Typography>
       <br/>
