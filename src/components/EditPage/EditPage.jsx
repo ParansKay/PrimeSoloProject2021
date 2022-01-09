@@ -324,6 +324,7 @@ function EditPage(){
                                         style: {
                                           backgroundColor: '#003049',
                                           color:'black',
+                                          'min-height':'500px',
                                           'border-radius':'40px',
                                           height: 350,
                                           color: '#eae2b7'
@@ -333,7 +334,20 @@ function EditPage(){
                                     <DialogTitle id="alert-dialog-title" style={{'font-family':'Poiret One', 'font-size':'33px'}}>
                                       <center>{"Wait!"}</center>
                                     </DialogTitle>
-                                    <DialogContent>
+                                    <Box
+                                      component="img"
+                                      sx={{
+                                        height: 300,
+                                        width: 'auto',
+                                        maxHeight: { xs: 233, md: 167 },
+                                        maxWidth: { xs: 350, md: 250 },
+                                        position: 'absolute',
+                                        'top':'16px',
+                                        'left':'55px'
+                                      }}
+                                        src="/img/cautionbottle.png"
+                                    />
+                                    <DialogContent style={{'padding-top':'160px'}}>
                                     <DialogContentText id="alert-dialog-description" style={{'font-family':'roboto', 'color':'#eae2b7'}}>
                                        This action is irreversible! Deleting this submission will permanently remove it from all existance. Are you certain you'd like to delete this entry?
                                     </DialogContentText>
