@@ -102,6 +102,7 @@ function LoginForm() {
                 id="outlined-multiline-static"
                 label="Username"
                 variant="outlined"
+                autocomplete= "off"
                 // variant="filled"
                 // color="warning"
                 style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}

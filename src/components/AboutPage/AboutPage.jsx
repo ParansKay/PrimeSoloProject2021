@@ -38,7 +38,7 @@ function AboutPage() {
       <br/>
       <br/>
       <flexbox style={{'margin-left':'20px','padding':'10px','font-family':'roboto', 'font-weight':'500', 'font-size':'20px', 'background-color':'#fcbf49','color':'#003049', 'border-radius':'30px'}}>Special thanks to:</flexbox>
-      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'35px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Prime Digital Academy, especially my instructor Dev and cohort-mate Amanda!</Typography>
+      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'35px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Prime Digital Academy and my incredible cohort—especially my instructor Dev and cohort-mate Amanda</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Dillon Baxendell</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Anne Byrd, and the incredible instructors at Normandale College Theatre</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Daleko Arts Theatre</Typography>
