@@ -23,6 +23,7 @@ function AboutPage() {
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','font-size':'20px', 'margin-top':'10px', 'margin-bottom':'10px','font-weight':'250', 'color':'#eae2b7'}}>• Adding profiles for users, especially instructors and coaches so that users are able to view their upcoming projects and classes. </Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Ability to rate and view ratings for each activity</Typography>
       <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Ability to select / edit multiple tags</Typography>
+      <Typography style={{'margin-left':'20px', 'margin-right':'20px','margin-top':'10px', 'margin-bottom':'10px', 'font-size':'20px', 'font-weight':'250', 'color':'#eae2b7'}}>• Text notifications to admin for new user submissions</Typography>
 
       <br/>
       <br/>
